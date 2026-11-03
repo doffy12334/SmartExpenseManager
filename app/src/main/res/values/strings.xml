@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">SmartExpenseManager</string>
+    <color name="onboarding_background">#F5FAFF</color>
+    <color name="onboarding_surface">#E9F5FF</color>
+    <color name="onboarding_primary">#006455</color>
+    <color name="onboarding_text">#071E29</color>
+    <color name="onboarding_secondary">#3E4946</color>
+    <string name="onboarding_title">Dữ liệu riêng tư, Bảo mật tối đa</string>
+    <string name="onboarding_description">Tài sản và thông tin chi tiêu của bạn được mã hóa đầu cuối AES-256. Mở khóa siêu nhanh bằng vân tay, Face ID hoặc mã PIN 6 số an toàn.</string>
+    <string name="onboarding_privacy_title">Không bán dữ liệu cho bên thứ ba</string>
+    <string name="onboarding_privacy_body">Quyền riêng tư tuyệt đối, thông tin tài chính luôn ẩn danh.</string>
+    <string name="onboarding_backup_title">Đồng bộ đám mây an toàn &amp; sao lưu ngoại tuyến</string>
+    <string name="onboarding_backup_body">Truy cập mượt mà ngay cả khi không có mạng Internet.</string>
+    <string name="onboarding_start">Bắt đầu ngay</string>
+    <string name="onboarding_login">Đăng nhập tài khoản cũ</string>
+    <string name="onboarding_back">Quay lại</string>
+    <string name="onboarding_skip">Skip</string>
+    <string name="onboarding_account">Tài khoản</string>
+    <string name="onboarding_progress">Hướng dẫn, bước 3 trên 3</string>
+    <string name="onboarding_bank_security">Bảo mật cấp ngân hàng</string>
+    <string name="onboarding_biometric">Sinh trắc học</string>
+    <string name="onboarding_biometric_value">FaceID / TouchID</string>
+    <string name="onboarding_dual_backup">Sao lưu kép</string>
+    <string name="onboarding_cloud_value">E2EE Cloud Sync</string>
+    <string name="onboarding_encryption">AES-256</string>
+    <string name="onboarding_legal">Bằng việc tiếp tục, bạn đồng ý với &lt;a href="terms"&gt;Điều khoản&lt;/a&gt; &amp; &lt;a href="privacy"&gt;Chính sách bảo mật&lt;/a&gt; của Finora.</string>
+    <string name="onboarding_terms">Điều khoản</string>
+    <string name="onboarding_policy">Chính sách bảo mật</string>
+    <string name="onboarding_pending">Màn hình này sẽ được bổ sung ở bước tiếp theo.</string>
+    <string name="onboarding_legal_pending">Nội dung pháp lý chưa được cung cấp.</string>
+    <string name="onboarding_previous_pending">Bạn đang xem màn onboarding đầu tiên được triển khai. Các màn trước chưa được bổ sung.</string>
+    <string name="onboarding_close">Đóng</string>
+</resources>

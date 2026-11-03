@@ -5,12 +5,32 @@
     <color name="onboarding_primary">#006455</color>
     <color name="onboarding_text">#071E29</color>
     <color name="onboarding_secondary">#3E4946</color>
+    <!-- Onboarding Page 1 -->
+    <string name="onboarding_p1_title">Quản Lý Chi Tiêu Thông Minh</string>
+    <string name="onboarding_p1_description">Theo dõi thu nhập, chi tiêu hàng ngày một cách tự động và trực quan với công nghệ phân tích dòng tiền thông minh.</string>
+    <string name="onboarding_p1_badge">Quản lý tài chính</string>
+    <string name="onboarding_p1_feature1_title">Tự động phân loại chi tiêu</string>
+    <string name="onboarding_p1_feature1_body">Nhận diện hóa đơn và tự động sắp xếp vào các danh mục phù hợp.</string>
+    <string name="onboarding_p1_feature2_title">Báo cáo trực quan &amp; chi tiết</string>
+    <string name="onboarding_p1_feature2_body">Biểu đồ phân tích dòng tiền giúp bạn dễ dàng nắm bắt tình hình tài chính.</string>
+
+    <!-- Onboarding Page 2 -->
+    <string name="onboarding_p2_title">Lập Ngân Sách &amp; Hạn Mức</string>
+    <string name="onboarding_p2_description">Thiết lập hạn mức chi tiêu cho từng danh mục để luôn chủ động trong kế hoạch tài chính cá nhân mỗi tháng.</string>
+    <string name="onboarding_p2_badge">Kiểm soát ngân sách</string>
+    <string name="onboarding_p2_feature1_title">Cảnh báo vượt hạn mức</string>
+    <string name="onboarding_p2_feature1_body">Nhận thông báo tức thì khi chi tiêu tiệm cận ngưỡng ngân sách cho phép.</string>
+    <string name="onboarding_p2_feature2_title">Tối ưu hóa tiết kiệm</string>
+    <string name="onboarding_p2_feature2_body">Gợi ý lộ trình tích lũy và tiết kiệm hiệu quả cho các mục tiêu dài hạn.</string>
+
+    <!-- Onboarding Page 3 (Page hiện tại) -->
     <string name="onboarding_title">Dữ liệu riêng tư, Bảo mật tối đa</string>
     <string name="onboarding_description">Tài sản và thông tin chi tiêu của bạn được mã hóa đầu cuối AES-256. Mở khóa siêu nhanh bằng vân tay, Face ID hoặc mã PIN 6 số an toàn.</string>
     <string name="onboarding_privacy_title">Không bán dữ liệu cho bên thứ ba</string>
     <string name="onboarding_privacy_body">Quyền riêng tư tuyệt đối, thông tin tài chính luôn ẩn danh.</string>
     <string name="onboarding_backup_title">Đồng bộ đám mây an toàn &amp; sao lưu ngoại tuyến</string>
     <string name="onboarding_backup_body">Truy cập mượt mà ngay cả khi không có mạng Internet.</string>
+    <string name="onboarding_next">Tiếp tục</string>
     <string name="onboarding_start">Bắt đầu ngay</string>
     <string name="onboarding_login">Đăng nhập tài khoản cũ</string>
     <string name="onboarding_back">Quay lại</string>
@@ -30,4 +50,43 @@
     <string name="onboarding_legal_pending">Nội dung pháp lý chưa được cung cấp.</string>
     <string name="onboarding_previous_pending">Bạn đang xem màn onboarding đầu tiên được triển khai. Các màn trước chưa được bổ sung.</string>
     <string name="onboarding_close">Đóng</string>
+    <!-- Receipt onboarding: Figma node 1:2. Values in the preview are illustrative. -->
+    <string name="receipt_onboarding_badge">TRỢ LÝ TÀI CHÍNH THÔNG MINH</string>
+    <string name="receipt_onboarding_title">Quét hóa đơn AI siêu tốc &amp;\nChuẩn xác</string>
+    <string name="receipt_onboarding_description">Không còn phải gõ phím thủ công. Chỉ cần\nchụp hóa đơn, công nghệ OCR AI độc quyền\ncủa Finora sẽ tự động điền giá tiền, ngày giờ\nvà danh mục.</string>
+    <string name="receipt_onboarding_ocr">AI Smart OCR • 99.4%</string>
+    <string name="receipt_onboarding_merchant">Phở Thìn &amp; Cà phê</string>
+    <string name="receipt_onboarding_category">Ăn uống • 12:45 Hôm nay</string>
+    <string name="receipt_onboarding_amount">-115.000₫</string>
+    <string name="receipt_onboarding_matched">Đã khớp</string>
+    <string name="receipt_onboarding_week">Tuần này</string>
+    <string name="receipt_onboarding_week_amount">1.450.000₫</string>
+    <string name="receipt_onboarding_speed">Tốc độ xử lý</string>
+    <string name="receipt_onboarding_speed_value">~ 0.8 giây</string>
+    <string name="receipt_onboarding_recognition_title">Nhận diện tức thì</string>
+    <string name="receipt_onboarding_recognition_body">Tự bóc tách thông minh tên quán, thời gian, số tiền VND chuẩn xác đến từng chữ số.</string>
+    <string name="receipt_onboarding_report_title">Báo cáo biểu đồ trực quan</string>
+    <string name="receipt_onboarding_report_body">Tự động phân nhóm vào hạn mức ăn uống, giải trí và so sánh theo tuần, tháng.</string>
+    <string name="receipt_onboarding_login">Đã có tài khoản? &lt;font color=\"#006455\"&gt;Đăng nhập&lt;/font&gt;</string>
+    <string name="receipt_onboarding_preview_description">Minh họa quét hóa đơn và kết quả nhận diện mẫu</string>
+    <!-- Cashflow onboarding: Figma node 1:115. Preview figures are illustrative. -->
+    <string name="cashflow_onboarding_title">Làm chủ tài chính cá nhân trong\ntầm tay</string>
+    <string name="cashflow_onboarding_description">Tự động phân loại chi tiêu, ghi chép nhanh chóng chỉ trong 3 giây và kiểm soát số dư ngân sách thông minh mỗi ngày.</string>
+    <string name="cashflow_onboarding_assets">Tổng tài sản khả dụng</string>
+    <string name="cashflow_onboarding_growth">+14.2%</string>
+    <string name="cashflow_onboarding_balance">48.650.000</string>
+    <string name="cashflow_onboarding_currency">₫</string>
+    <string name="cashflow_onboarding_income">Thu: +28.500.000₫</string>
+    <string name="cashflow_onboarding_expense">Chi: -12.350.000₫</string>
+    <string name="cashflow_onboarding_dining">Ăn uống</string>
+    <string name="cashflow_onboarding_dining_limit">35% hạn mức</string>
+    <string name="cashflow_onboarding_transport">Di chuyển</string>
+    <string name="cashflow_onboarding_transport_amount">1.850.000₫</string>
+    <string name="cashflow_onboarding_savings">Mục tiêu tiết kiệm</string>
+    <string name="cashflow_onboarding_savings_goal">Quỹ mua nhà • 68%</string>
+    <string name="cashflow_onboarding_recognition">Quét hóa đơn AI chính xác 98%</string>
+    <string name="cashflow_onboarding_budget_alert">Cảnh báo bội chi trước khi chạm hạn mức</string>
+    <string name="cashflow_onboarding_progress">Hướng dẫn, bước 1 trên 3</string>
+    <string name="cashflow_onboarding_preview">Minh họa tổng tài sản, thu chi, danh mục và mục tiêu tiết kiệm</string>
+    <string name="onboarding_progress_format">Hướng dẫn, bước %1$d trên %2$d</string>
 </resources>

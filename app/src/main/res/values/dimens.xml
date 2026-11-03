@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="onboarding_indicator_active_width">28dp</dimen>
+    <dimen name="onboarding_indicator_inactive_width">10dp</dimen>
+</resources>

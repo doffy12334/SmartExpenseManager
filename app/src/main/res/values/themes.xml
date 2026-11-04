@@ -1,9 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.SmartExpenseManager" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
-
     <style name="Theme.SmartExpenseManager" parent="Base.Theme.SmartExpenseManager" />
+    <style name="ThemeOverlay.SmartExpenseManager.Login" parent="ThemeOverlay.Material3">
+        <item name="colorPrimary">@color/login_accent</item>
+        <item name="colorOnPrimary">@color/login_card</item>
+        <item name="colorSecondary">@color/login_accent</item>
+        <item name="android:colorAccent">@color/login_accent</item>
+    </style>
 </resources>

@@ -1,15 +1,17 @@
-package com.example.smartexpensemanager.ui.onboarding
+package com.example.smartexpensemanager.ui.onboarding.fragment
 
 import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
+import androidx.core.text.HtmlCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.smartexpensemanager.R
 import com.example.smartexpensemanager.databinding.FragmentOnboardingBinding
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import androidx.core.text.HtmlCompat
+import com.example.smartexpensemanager.ui.onboarding.OnboardingAdapter
+
 /**
  * Fragment quản lý màn hình hướng dẫn ban đầu (Onboarding).
  * Bao gồm ViewPager2 chứa 3 slide hướng dẫn và thanh điều khiển chung (Back, Skip, Indicator, Next).
@@ -76,6 +78,8 @@ class OnboardingFragment : Fragment(R.layout.fragment_onboarding) {
         binding.onboardingBack.setOnClickListener {
             previousPage()
         }
+        binding.onboardingLogin.setOnClickListener { openLogin() }
+        binding.onboardingAccount.setOnClickListener { openLogin() }
     }
 
     /** Lùi ViewPager2 về trang trước đó */
@@ -94,11 +98,14 @@ class OnboardingFragment : Fragment(R.layout.fragment_onboarding) {
 
     /** Hoàn tất Onboarding và chuyển sang màn hình tiếp theo */
     private fun finishOnboarding() {
-        MaterialAlertDialogBuilder(requireContext())
-            .setTitle(R.string.onboarding_start)
-            .setMessage(R.string.onboarding_pending)
-            .setPositiveButton(R.string.onboarding_close, null)
-            .show()
+        openLogin()
+    }
+
+    private fun openLogin() {
+        val controller = findNavController()
+        if (controller.currentDestination?.id == R.id.onboardingFragment) {
+            controller.navigate(R.id.action_onboarding_to_login)
+        }
     }
 
     /** Cấu hình nút Back cử chỉ/hệ thống của Android để lùi slide thay vì thoát app */
@@ -125,6 +132,9 @@ class OnboardingFragment : Fragment(R.layout.fragment_onboarding) {
         val isLastPage = position == OnboardingAdapter.PAGE_COUNT - 1
 
         with(currentBinding) {
+            onboardingIndicators.contentDescription = getString(
+                R.string.onboarding_progress_format, position + 1, OnboardingAdapter.PAGE_COUNT
+            )
 
             onboardingStart.setText(
                 if (isLastPage) R.string.onboarding_start else R.string.onboarding_next

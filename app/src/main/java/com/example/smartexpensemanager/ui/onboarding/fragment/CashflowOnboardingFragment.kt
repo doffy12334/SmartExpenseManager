@@ -1,4 +1,5 @@
-package com.example.smartexpensemanager.ui.onboarding
+package com.example.smartexpensemanager.ui.onboarding.fragment
+
 import androidx.fragment.app.Fragment
 import com.example.smartexpensemanager.R
 

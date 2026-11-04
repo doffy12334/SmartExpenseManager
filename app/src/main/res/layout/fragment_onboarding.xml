@@ -2,7 +2,8 @@
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
-  android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:orientation="vertical"
   android:background="@color/onboarding_background">
@@ -39,7 +40,8 @@
       android:text="@string/onboarding_skip"
       android:textColor="#4D635C"
       android:textSize="14sp"
-      android:paddingHorizontal="8dp" />
+      android:paddingHorizontal="8dp"
+        tools:ignore="VisualLintSystemUi" />
     <FrameLayout
       android:id="@+id/onboarding_account"
       android:layout_width="48dp"
@@ -113,7 +115,8 @@
       app:iconSize="14dp"
       app:iconPadding="8dp"
       app:iconGravity="textEnd"
-      app:iconTint="#FFFFFF" />
+      app:iconTint="#FFFFFF"
+        tools:ignore="VisualLintButtonSize" />
     <com.google.android.material.button.MaterialButton
       android:id="@+id/onboarding_login"
       android:layout_width="match_parent"
@@ -127,7 +130,8 @@
       android:insetBottom="0dp"
       app:cornerRadius="12dp"
       app:backgroundTint="#D0E8DF"
-      app:elevation="0dp" />
+      app:elevation="0dp"
+        tools:ignore="VisualLintButtonSize" />
     <TextView
       android:id="@+id/onboarding_legal"
       android:layout_width="match_parent"

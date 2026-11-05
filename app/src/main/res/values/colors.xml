@@ -21,4 +21,28 @@
     <color name="onboarding_primary">#006455</color>
     <color name="onboarding_text">#071E29</color>
     <color name="onboarding_secondary">#3E4946</color>
+
+    <!-- Dashboard -->
+    <color name="dashboard_background">#F5FAFF</color>
+    <color name="dashboard_ink">#071E29</color>
+    <color name="dashboard_white">#FFFFFF</color>
+    <color name="dashboard_secondary">#3E4946</color>
+    <color name="dashboard_muted">#536962</color>
+    <color name="dashboard_accent">#006455</color>
+    <color name="dashboard_primary">#087F6D</color>
+    <color name="dashboard_mint">#D0E8DF</color>
+    <color name="dashboard_blue">#D5EBFA</color>
+    <color name="dashboard_surface">#E9F5FF</color>
+    <color name="dashboard_danger">#BA1A1A</color>
+    <color name="dashboard_expense">#E66B68</color>
+    <color name="dashboard_food">#E66B68</color>
+    <color name="dashboard_shopping">#087F6D</color>
+    <color name="dashboard_bills">#F9A10A</color>
+    <color name="dashboard_travel">#377FF3</color>
+    <!-- Sign up -->
+    <color name="signup_field">#D0E6F4</color>
+    <color name="signup_chip">#DCF1FF</color>
+    <color name="signup_welcome_end">#C8F4F2</color>
+    <color name="signup_savings_start">#66D0E8DF</color>
+    <color name="signup_savings_badge">#1A006455</color>
 </resources>

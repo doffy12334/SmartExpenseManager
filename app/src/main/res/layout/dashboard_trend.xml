@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/dashboard_card"
+    android:elevation="1dp"
+    android:layout_marginTop="16dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dashboard_trend"
+                android:textSize="16sp"
+                android:textColor="@color/dashboard_ink"
+                android:includeFontPadding="false"
+                android:fontFamily="sans-serif-medium" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dashboard_trend_average"
+                android:textSize="12sp"
+                android:textColor="@color/dashboard_accent"
+                android:includeFontPadding="false"
+                android:fontFamily="sans-serif-medium" />
+        </LinearLayout>
+        <FrameLayout
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/dashboard_blue_pill">
+            <ImageView
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:src="@drawable/dashboard_trend"
+                android:scaleType="fitCenter"
+                android:importantForAccessibility="no"
+                android:layout_gravity="center" />
+        </FrameLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="1dp"
+        android:layout_height="12dp" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="124dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="124dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="bottom|center_horizontal">
+                <View
+                    android:layout_width="28dp"
+                    android:layout_height="58dp"
+                    android:background="@drawable/dashboard_bar_mint" />
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="5dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dashboard_mon"
+                    android:textSize="11sp"
+                    android:textColor="@color/dashboard_secondary"
+                    android:includeFontPadding="false" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="124dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="bottom|center_horizontal">
+                <View
+                    android:layout_width="28dp"
+                    android:layout_height="78dp"
+                    android:background="@drawable/dashboard_bar_mint" />
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="5dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dashboard_tue"
+                    android:textSize="11sp"
+                    android:textColor="@color/dashboard_secondary"
+                    android:includeFontPadding="false" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="124dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="bottom|center_horizontal">
+                <View
+                    android:layout_width="28dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/dashboard_bar_mint" />
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="5dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dashboard_wed"
+                    android:textSize="11sp"
+                    android:textColor="@color/dashboard_secondary"
+                    android:includeFontPadding="false" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="124dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="bottom|center_horizontal">
+                <View
+                    android:layout_width="28dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/dashboard_bar_mint" />
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="5dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dashboard_thu"
+                    android:textSize="11sp"
+                    android:textColor="@color/dashboard_secondary"
+                    android:includeFontPadding="false" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="124dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="bottom|center_horizontal">
+                <View
+                    android:layout_width="28dp"
+                    android:layout_height="66dp"
+                    android:background="@drawable/dashboard_bar_mint" />
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="5dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dashboard_fri"
+                    android:textSize="11sp"
+                    android:textColor="@color/dashboard_secondary"
+                    android:includeFontPadding="false" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="124dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="bottom|center_horizontal">
+                <View
+                    android:layout_width="28dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/dashboard_bar_dark" />
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="5dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dashboard_sat"
+                    android:textSize="11sp"
+                    android:textColor="@color/dashboard_secondary"
+                    android:includeFontPadding="false" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="124dp"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:gravity="bottom|center_horizontal">
+                <View
+                    android:layout_width="28dp"
+                    android:layout_height="46dp"
+                    android:background="@drawable/dashboard_bar_primary" />
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="5dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dashboard_sun"
+                    android:textSize="11sp"
+                    android:textColor="@color/dashboard_accent"
+                    android:includeFontPadding="false"
+                    android:fontFamily="sans-serif-medium" />
+            </LinearLayout>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/dashboard_average_line"
+            android:layout_marginTop="59dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dashboard_average_marker"
+            android:textSize="10sp"
+            android:textColor="@color/dashboard_muted"
+            android:includeFontPadding="false"
+            android:layout_gravity="end"
+            android:layout_marginTop="47dp"
+            android:background="@color/dashboard_white" />
+    </FrameLayout>
+</LinearLayout>

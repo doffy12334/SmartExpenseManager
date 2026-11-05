@@ -76,7 +76,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             showUnavailable(R.string.login_forgot_password, R.string.login_forgot_unavailable)
         }
         loginSignup.setOnClickListener {
-            showUnavailable(R.string.login_signup, R.string.login_signup_unavailable)
+            findNavController().navigate(R.id.action_login_to_signup)
         }
         loginGoogle.setOnClickListener {
             showUnavailable(R.string.login_google, R.string.login_google_unavailable)
@@ -97,6 +97,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 }
             }
         }
+
     }
 
     private fun renderUi(state: LoginUiState) = with(binding) {
@@ -122,6 +123,15 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 if (it == IdentifierError.REQUIRED) R.string.login_identifier_required
                 else R.string.login_identifier_invalid
             )
+        }
+
+        if(state.isSuccess){
+            findNavController().navigate(R.id.action_login_to_dashboard)
+            return@with
+        }
+
+        state.errorMessage?.let{ _->
+            showUnavailable(R.string.login_header,R.string.login_failed )
         }
 
         // Cap nhat loi password

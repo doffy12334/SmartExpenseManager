@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/dashboard_card"
+    android:elevation="1dp"
+    android:layout_marginTop="16dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <View
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:background="@drawable/dashboard_accent_dot" />
+        <View
+            android:layout_width="8dp"
+            android:layout_height="1dp" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/dashboard_budget_title"
+            android:textSize="16sp"
+            android:textColor="@color/dashboard_ink"
+            android:includeFontPadding="false"
+            android:fontFamily="sans-serif-medium"
+            android:layout_weight="1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dashboard_budget_limit"
+            android:textSize="11sp"
+            android:textColor="@color/dashboard_secondary"
+            android:includeFontPadding="false" />
+    </LinearLayout>
+    <View
+        android:layout_width="1dp"
+        android:layout_height="10dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/dashboard_budget_track"
+        android:padding="2dp">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="8dp"
+            android:layout_weight="73.4"
+            android:background="@drawable/dashboard_budget_fill" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="8dp"
+            android:layout_weight="26.6" />
+    </LinearLayout>
+    <View
+        android:layout_width="1dp"
+        android:layout_height="10dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <ImageView
+            android:layout_width="11dp"
+            android:layout_height="13dp"
+            android:src="@drawable/dashboard_flame"
+            android:scaleType="fitCenter"
+            android:importantForAccessibility="no" />
+        <View
+            android:layout_width="4dp"
+            android:layout_height="1dp" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/dashboard_budget_remaining"
+            android:textSize="11sp"
+            android:textColor="@color/dashboard_danger"
+            android:includeFontPadding="false"
+            android:layout_weight="1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dashboard_budget_used"
+            android:textSize="11sp"
+            android:textColor="@color/dashboard_ink"
+            android:includeFontPadding="false"
+            android:fontFamily="sans-serif-medium" />
+    </LinearLayout>
+</LinearLayout>

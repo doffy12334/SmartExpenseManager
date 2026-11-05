@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:minHeight="64dp"
+    android:paddingHorizontal="8dp"
+    android:background="@color/dashboard_background"
+    android:elevation="2dp">
+    <View
+        android:layout_width="92dp"
+        android:layout_height="1dp" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dashboard_brand"
+                android:textSize="18sp"
+                android:textColor="@color/dashboard_ink"
+                android:includeFontPadding="false"
+                android:fontFamily="sans-serif-medium" />
+            <View
+                android:layout_width="6dp"
+                android:layout_height="1dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dashboard_home_en"
+                android:textSize="12sp"
+                android:textColor="@color/dashboard_accent"
+                android:includeFontPadding="false"
+                android:fontFamily="sans-serif-medium" />
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dashboard_synced"
+            android:textSize="11sp"
+            android:textColor="@color/dashboard_accent"
+            android:includeFontPadding="false"
+            android:fontFamily="sans-serif-medium"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+    <FrameLayout
+        android:layout_width="44dp"
+        android:layout_height="48dp"
+        android:id="@+id/dashboard_notification"
+        android:contentDescription="@string/dashboard_notification_action"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground">
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="18dp"
+            android:src="@drawable/dashboard_notification"
+            android:scaleType="fitCenter"
+            android:importantForAccessibility="no"
+            android:layout_gravity="center" />
+        <View
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:background="@drawable/dashboard_red_dot"
+            android:layout_gravity="top|end"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="12dp" />
+    </FrameLayout>
+    <ImageView
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:src="@drawable/dashboard_profile"
+        android:scaleType="centerCrop"
+        android:importantForAccessibility="yes"
+        android:id="@+id/dashboard_profile"
+        android:contentDescription="@string/dashboard_profile_action"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:background="@drawable/dashboard_mint_pill"
+        android:clipToOutline="true"
+        android:layout_marginEnd="8dp" />
+</LinearLayout>

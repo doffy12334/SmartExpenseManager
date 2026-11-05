@@ -1,12 +1,27 @@
+import java.util.Properties
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
 }
+val supabaseProperties = Properties().apply {
+    rootProject.file("supabase.properties").inputStream().use {
+        load(it)
+    }
+}
+
+val supabaseUrl = requireNotNull(
+    supabaseProperties.getProperty("SUPABASE_URL")
+)
+
+val supabasePublishableKey = requireNotNull(
+    supabaseProperties.getProperty("SUPABASE_PUBLISHABLE_KEY")
+)
 
 android {
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
     namespace = "com.example.smartexpensemanager"
     compileSdk {
@@ -21,6 +36,18 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField(
+            "String",
+            "SUPABASE_URL",
+            "\"$supabaseUrl\""
+        )
+
+        buildConfigField(
+            "String",
+            "SUPABASE_PUBLISHABLE_KEY",
+            "\"$supabasePublishableKey\""
+        )
     }
 
     buildTypes {
@@ -37,6 +64,9 @@ android {
 }
 
 dependencies {
+    implementation(platform(libs.supabase.bom))
+    implementation(libs.supabase.auth)
+    implementation(libs.ktor.client.okhttp)
     implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

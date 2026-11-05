@@ -1,19 +1,24 @@
 package com.example.smartexpensemanager.ui.auth.login
 
+import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.smartexpensemanager.data.repository.AuthRepository
+import com.example.smartexpensemanager.data.repository.AuthRepositoryImpl
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
 
 class LoginViewModel(
     private val savedState: SavedStateHandle
 ) : ViewModel() {
 
+    private val authRepository: AuthRepository = AuthRepositoryImpl()
     private val _uiState = MutableStateFlow(
         LoginUiState(
-            // Lấy email hoặc SĐT, lựa chọn checkbox trước đó nếu có
             identifier = savedState[KEY_IDENTIFIER] ?: "",
             rememberSession = savedState[KEY_REMEMBER] ?: false
         )
@@ -25,7 +30,8 @@ class LoginViewModel(
         _uiState.update {
             it.copy(
                 identifier = value,
-                identifierError = null
+                identifierError = null,
+                errorMessage = null
             )
         }
     }
@@ -34,7 +40,8 @@ class LoginViewModel(
         _uiState.update {
             it.copy(
                 password = value,
-                passwordRequired = false
+                passwordRequired = false,
+                errorMessage = null
             )
         }
     }
@@ -42,45 +49,90 @@ class LoginViewModel(
     fun onRememberSessionChanged(checked: Boolean) {
         savedState[KEY_REMEMBER] = checked
         _uiState.update {
-            it.copy(
-                rememberSession = checked
-            )
+            it.copy(rememberSession = checked)
         }
     }
 
     fun login() {
         val current = _uiState.value
-        val idError = validateIdentifier(current.identifier)
-        val passError = current.password.isEmpty()
+        val validation = validateForm(current.identifier, current.password)
 
-        if (idError != null || passError) {
+        if (!validation.isValid) {
             _uiState.update {
                 it.copy(
                     submitted = true,
-                    identifierError = idError,
-                    passwordRequired = passError
+                    identifierError = validation.identifierError,
+                    passwordRequired = validation.passwordRequired
                 )
             }
             return
         }
 
-        _uiState.update {
-            it.copy(
-                submitted = true,
-                isLoading = true,
-                authenticationUnavailable = true
-            )
+        viewModelScope.launch {
+            _uiState.update {
+                it.copy(
+                    submitted = true,
+                    isLoading = true,
+                    errorMessage = null
+                )
+            }
+            val identifier = current.identifier.trim()
+            val isEmail = EMAIL_REGEX.matches(identifier)
+
+            val result = if (isEmail) {
+                authRepository.loginWithEmail(
+                    email = identifier,
+                    password = current.password
+                )
+            } else {
+                authRepository.loginWithPhone(
+                    phone = identifier,
+                    password = current.password
+                )
+            }
+
+            result.onSuccess {
+                Log.d("Login", "Đăng nhập thành công")
+                _uiState.update {
+                    it.copy(
+                        isLoading = false,
+                        isSuccess = true,
+                        errorMessage = null
+                    )
+                }
+            }.onFailure { error ->
+                _uiState.update {
+                    it.copy(
+                        isLoading = false,
+                        isSuccess = false,
+                        errorMessage = error.message ?: "Đăng nhập thất bại"
+                    )
+                }
+            }
         }
     }
 
-    fun submit() = login()
 
+
+    //Validate email /pass
+    private data class ValidationResult(
+        val identifierError: IdentifierError?,
+        val passwordRequired: Boolean
+    ) {
+        val isValid: Boolean get() = identifierError == null && !passwordRequired
+    }
+
+    private fun validateForm(identifier: String, password: String): ValidationResult {
+        return ValidationResult(
+            identifierError = validateIdentifier(identifier),
+            passwordRequired = password.isEmpty()
+        )
+    }
     private fun validateIdentifier(value: String): IdentifierError? {
         val id = value.trim()
         if (id.isEmpty()) return IdentifierError.REQUIRED
         val isEmail = EMAIL_REGEX.matches(id)
-        val isPhone = PHONE_REGEX.matches(
-            id.replace(PHONE_SEPARATORS, ""))
+        val isPhone = PHONE_REGEX.matches(id.replace(PHONE_SEPARATORS, ""))
         return if (isEmail || isPhone) null else IdentifierError.INVALID
     }
 

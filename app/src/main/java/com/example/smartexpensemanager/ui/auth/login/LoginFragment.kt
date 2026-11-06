@@ -71,9 +71,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             viewModel.login()
         }
 
-        // Cac nut chuc nang tam thoi
         loginForgot.setOnClickListener {
-            showUnavailable(R.string.login_forgot_password, R.string.login_forgot_unavailable)
+            findNavController().navigate(R.id.action_login_to_recovery)
         }
         loginSignup.setOnClickListener {
             findNavController().navigate(R.id.action_login_to_signup)

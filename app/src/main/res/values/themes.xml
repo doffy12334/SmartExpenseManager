@@ -7,9 +7,9 @@
     </style>
     <style name="Theme.SmartExpenseManager" parent="Base.Theme.SmartExpenseManager" />
     <style name="ThemeOverlay.SmartExpenseManager.Login" parent="ThemeOverlay.Material3">
-        <item name="colorPrimary">@color/login_accent</item>
-        <item name="colorOnPrimary">@color/login_card</item>
-        <item name="colorSecondary">@color/login_accent</item>
-        <item name="android:colorAccent">@color/login_accent</item>
+        <item name="colorPrimary">@color/finora_emerald</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/finora_emerald</item>
+        <item name="android:colorAccent">@color/finora_emerald</item>
     </style>
 </resources>

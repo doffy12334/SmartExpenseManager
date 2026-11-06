@@ -1,0 +1,1000 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/finora_background"
+  android:theme="@style/ThemeOverlay.SmartExpenseManager.Login">
+
+  <!-- 1. Top Header Bar -->
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="0dp"
+    android:layout_height="64dp"
+    android:paddingHorizontal="16dp"
+    android:id="@+id/register_header"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <FrameLayout
+      android:id="@+id/signup_back"
+      android:layout_width="48dp"
+      android:layout_height="48dp"
+      android:contentDescription="@string/signup_back_desc"
+      android:clickable="true"
+      android:focusable="true"
+      android:background="?attr/selectableItemBackgroundBorderless"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toStartOf="@id/register_login_brand_bg"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent">
+      <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/signup_back"
+        android:importantForAccessibility="no"
+        android:layout_gravity="center" />
+    </FrameLayout>
+
+    <FrameLayout
+      android:layout_width="28dp"
+      android:layout_height="28dp"
+      android:background="@drawable/login_brand_bg"
+      android:layout_marginStart="8dp"
+      android:id="@+id/register_login_brand_bg"
+      app:layout_constraintStart_toEndOf="@id/signup_back"
+      app:layout_constraintEnd_toStartOf="@id/register_signup_brand"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent">
+      <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/signup_brand"
+        android:importantForAccessibility="no"
+        android:layout_gravity="center" />
+    </FrameLayout>
+
+    <TextView
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:text="@string/signup_brand"
+      android:textColor="@color/finora_ink"
+      android:textSize="16sp"
+      android:fontFamily="sans-serif"
+      android:includeFontPadding="false"
+      android:layout_marginStart="4dp"
+      android:maxLines="1"
+      android:ellipsize="end"
+      android:id="@+id/register_signup_brand"
+      app:layout_constraintStart_toEndOf="@id/register_login_brand_bg"
+      app:layout_constraintEnd_toStartOf="@id/register_signup_header"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/signup_header"
+      android:textColor="@color/finora_secondary"
+      android:textSize="14sp"
+      android:fontFamily="sans-serif"
+      android:includeFontPadding="false"
+      android:textStyle="bold"
+      android:id="@+id/register_signup_header"
+      app:layout_constraintStart_toEndOf="@id/register_signup_brand"
+      app:layout_constraintEnd_toStartOf="@id/register_onboarding_primary_2"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent" />
+
+    <FrameLayout
+      android:layout_width="32dp"
+      android:layout_height="32dp"
+      android:background="@drawable/onboarding_primary"
+      android:layout_marginStart="8dp"
+      android:id="@+id/register_onboarding_primary_2"
+      app:layout_constraintStart_toEndOf="@id/register_signup_header"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent">
+      <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/signup_account"
+        android:importantForAccessibility="no"
+        android:layout_gravity="center" />
+    </FrameLayout>
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+  <!-- 2. Scrollable Content Container -->
+  <androidx.core.widget.NestedScrollView
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:fillViewport="true"
+    android:importantForAutofill="yes"
+    android:id="@+id/register_scroll"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/register_header"
+    app:layout_constraintBottom_toBottomOf="parent">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:paddingHorizontal="16dp"
+      android:paddingBottom="32dp">
+
+      <!-- Warm Welcome Header Card (#E9F5FF) -->
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@drawable/login_card">
+
+        <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="22dp"
+          android:orientation="horizontal"
+          android:gravity="center_vertical"
+          android:paddingHorizontal="10dp"
+          android:paddingVertical="4dp"
+          android:background="@drawable/onboarding_secondary"
+          android:baselineAligned="false">
+          <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/signup_chevron"
+            android:importantForAccessibility="no" />
+          <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/signup_welcome_badge"
+            android:textColor="@color/finora_muted"
+            android:textSize="11sp"
+            android:fontFamily="sans-serif"
+            android:includeFontPadding="false"
+            android:layout_marginStart="4dp" />
+        </LinearLayout>
+
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="@string/signup_title"
+          android:textColor="@color/finora_ink"
+          android:textSize="24sp"
+          android:fontFamily="sans-serif"
+          android:includeFontPadding="false"
+          android:layout_marginTop="8dp"
+          android:textStyle="bold"
+          android:letterSpacing="-0.025"
+          android:accessibilityHeading="true"
+          tools:targetApi="p" />
+
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="@string/signup_subtitle"
+          android:textColor="@color/finora_secondary"
+          android:textSize="14sp"
+          android:fontFamily="sans-serif"
+          android:includeFontPadding="false"
+          android:layout_marginTop="4dp"
+          android:lineSpacingExtra="3dp" />
+      </LinearLayout>
+
+      <!-- Security End-to-End Badge Card (#DCF1FF) -->
+      <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:padding="12dp"
+        android:background="@drawable/receipt_onboarding_feature">
+        <FrameLayout
+          android:layout_width="32dp"
+          android:layout_height="32dp"
+          android:background="@drawable/onboarding_primary"
+          android:id="@+id/register_onboarding_primary"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintEnd_toStartOf="@id/register_signup_privacy"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent">
+          <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/signup_shield"
+            android:importantForAccessibility="no"
+            android:layout_gravity="center" />
+        </FrameLayout>
+        <TextView
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="10dp"
+          android:text="@string/signup_privacy"
+          android:textColor="@color/finora_secondary"
+          android:textSize="12sp"
+          android:fontFamily="sans-serif"
+          android:includeFontPadding="false"
+          android:lineSpacingExtra="2dp"
+          android:id="@+id/register_signup_privacy"
+          app:layout_constraintStart_toEndOf="@id/register_onboarding_primary"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent" />
+      </androidx.constraintlayout.widget.ConstraintLayout>
+
+      <!-- Registration Form Container -->
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical">
+
+        <!-- 1. Full Name Field -->
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="@string/signup_name_label"
+          android:textColor="@color/finora_ink"
+          android:textSize="14sp"
+          android:fontFamily="sans-serif"
+          android:includeFontPadding="false"
+          android:labelFor="@id/signup_name"
+          android:textStyle="bold" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="48dp"
+          android:layout_marginTop="6dp"
+          android:paddingHorizontal="14dp"
+          android:background="@drawable/login_input">
+          <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/signup_identity"
+            android:importantForAccessibility="no"
+            android:id="@+id/register_signup_identity"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/signup_name"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+          <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signup_name"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:background="@null"
+            android:padding="0dp"
+            android:hint="@string/signup_name_hint"
+            android:inputType="textPersonName"
+            android:imeOptions="actionNext"
+            android:singleLine="true"
+            android:textColor="@color/finora_ink"
+            android:textColorHint="@color/finora_hint"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif"
+            app:layout_constraintStart_toEndOf="@id/register_signup_identity"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- 2. Phone Number Field with Vietnam dial code -->
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="16dp"
+          android:text="@string/signup_phone_label"
+          android:textColor="@color/finora_ink"
+          android:textSize="14sp"
+          android:fontFamily="sans-serif"
+          android:includeFontPadding="false"
+          android:labelFor="@id/signup_phone"
+          android:textStyle="bold" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="52dp"
+          android:layout_marginTop="6dp">
+
+          <!-- Dial Code Chip (+84) -->
+          <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="12dp"
+            android:background="@drawable/login_input"
+            android:baselineAligned="false"
+            android:id="@+id/register_login_input"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/register_login_input_2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/signup_phone_prefix"
+              app:drawableEndCompat="@drawable/signup_dropdown"
+              android:drawablePadding="4dp"
+              android:textColor="@color/finora_ink"
+              android:textSize="14sp"
+              android:fontFamily="sans-serif"
+              android:includeFontPadding="false"
+              android:textStyle="bold" />
+          </LinearLayout>
+
+          <!-- Phone Number Input -->
+          <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:paddingHorizontal="14dp"
+            android:background="@drawable/login_input"
+            android:id="@+id/register_login_input_2"
+            app:layout_constraintStart_toEndOf="@id/register_login_input"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <ImageView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:src="@drawable/signup_phone"
+              android:importantForAccessibility="no"
+              android:id="@+id/register_signup_phone"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintEnd_toStartOf="@id/signup_phone"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintBottom_toBottomOf="parent" />
+            <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/signup_phone"
+              android:layout_width="0dp"
+              android:layout_height="0dp"
+              android:background="@null"
+              android:padding="0dp"
+              android:hint="@string/signup_phone_hint"
+              android:inputType="phone"
+              android:imeOptions="actionNext"
+              android:singleLine="true"
+              android:textColor="@color/finora_ink"
+              android:textColorHint="@color/finora_hint"
+              android:textSize="16sp"
+              android:fontFamily="sans-serif"
+              app:layout_constraintStart_toEndOf="@id/register_signup_phone"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintBottom_toBottomOf="parent" />
+          </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="4dp"
+          android:text="@string/signup_phone_helper"
+          android:textColor="@color/finora_secondary"
+          android:textSize="12sp"
+          android:fontFamily="sans-serif"
+          android:includeFontPadding="false" />
+
+        <!-- 3. Email Field -->
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="16dp"
+          android:text="@string/signup_email_label"
+          android:textColor="@color/finora_ink"
+          android:textSize="14sp"
+          android:fontFamily="sans-serif"
+          android:includeFontPadding="false"
+          android:labelFor="@id/signup_identifier"
+          android:textStyle="bold" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="48dp"
+          android:layout_marginTop="6dp"
+          android:paddingHorizontal="14dp"
+          android:background="@drawable/login_input">
+          <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/signup_email"
+            android:importantForAccessibility="no"
+            android:id="@+id/register_signup_email"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/signup_identifier"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+          <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signup_identifier"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:background="@null"
+            android:padding="0dp"
+            android:hint="@string/signup_email_hint"
+            android:inputType="textEmailAddress"
+            android:autofillHints="email"
+            android:imeOptions="actionNext"
+            android:singleLine="true"
+            android:textColor="@color/finora_ink"
+            android:textColorHint="@color/finora_hint"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif"
+            app:layout_constraintStart_toEndOf="@id/register_signup_email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+          android:id="@+id/signup_identifier_error"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="4dp"
+          android:textColor="@color/finora_error"
+          android:textSize="12sp"
+          android:visibility="gone" />
+
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="4dp"
+          android:text="@string/signup_email_helper"
+          android:textColor="@color/finora_secondary"
+          android:textSize="12sp"
+          android:fontFamily="sans-serif"
+          android:includeFontPadding="false" />
+
+        <!-- 4. Password Field -->
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="16dp"
+          android:text="@string/signup_password_label"
+          android:textColor="@color/finora_ink"
+          android:textSize="14sp"
+          android:fontFamily="sans-serif"
+          android:includeFontPadding="false"
+          android:labelFor="@id/signup_password"
+          android:textStyle="bold" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="48dp"
+          android:layout_marginTop="6dp"
+          android:paddingStart="14dp"
+          android:paddingEnd="0dp"
+          android:background="@drawable/login_input">
+          <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/signup_lock"
+            android:importantForAccessibility="no"
+            android:id="@+id/register_signup_lock"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/signup_password"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+          <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signup_password"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:background="@null"
+            android:padding="0dp"
+            android:hint="@string/signup_password_hint"
+            android:inputType="textPassword"
+            android:imeOptions="actionNext"
+            android:singleLine="true"
+            android:textColor="@color/finora_ink"
+            android:textColorHint="@color/finora_hint"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif"
+            app:layout_constraintStart_toEndOf="@id/register_signup_lock"
+            app:layout_constraintEnd_toStartOf="@id/signup_password_toggle"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+          <FrameLayout
+            android:id="@+id/signup_password_toggle"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:contentDescription="@string/signup_show_password_desc"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:layout_constraintStart_toEndOf="@id/signup_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <ImageView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:src="@drawable/signup_eye"
+              android:importantForAccessibility="no"
+              android:layout_gravity="center" />
+          </FrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+          android:id="@+id/signup_password_error"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="4dp"
+          android:textColor="@color/finora_error"
+          android:textSize="12sp"
+          android:visibility="gone" />
+
+        <!-- Password Strength Meter Box -->
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="8dp"
+          android:padding="12dp"
+          android:orientation="vertical"
+          android:background="@drawable/login_card">
+
+          <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:text="@string/signup_strength_label"
+              android:textColor="@color/finora_secondary"
+              android:textSize="11sp"
+              android:fontFamily="sans-serif"
+              android:includeFontPadding="false"
+              android:id="@+id/register_signup_strength_label"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintEnd_toStartOf="@id/signup_strength_text"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintBottom_toBottomOf="parent" />
+            <TextView
+              android:id="@+id/signup_strength_text"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/signup_strength_empty"
+              android:textColor="@color/finora_hint"
+              android:textSize="12sp"
+              android:fontFamily="sans-serif"
+              android:includeFontPadding="false"
+              android:textStyle="bold"
+              app:layout_constraintStart_toEndOf="@id/register_signup_strength_label"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintBottom_toBottomOf="parent" />
+          </androidx.constraintlayout.widget.ConstraintLayout>
+
+          <!-- 3 Strength Bar Segments -->
+          <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:layout_marginTop="8dp">
+            <View
+              android:id="@+id/strength_bar_1"
+              android:layout_width="0dp"
+              android:layout_height="0dp"
+              android:background="@drawable/login_input"
+              app:layout_constraintHorizontal_weight="1"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintEnd_toStartOf="@id/strength_bar_2"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintBottom_toBottomOf="parent" />
+            <View
+              android:id="@+id/strength_bar_2"
+              android:layout_width="0dp"
+              android:layout_height="0dp"
+              android:background="@drawable/login_input"
+              android:layout_marginStart="6dp"
+              app:layout_constraintHorizontal_weight="1"
+              app:layout_constraintStart_toEndOf="@id/strength_bar_1"
+              app:layout_constraintEnd_toStartOf="@id/strength_bar_3"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintBottom_toBottomOf="parent" />
+            <View
+              android:id="@+id/strength_bar_3"
+              android:layout_width="0dp"
+              android:layout_height="0dp"
+              android:background="@drawable/login_input"
+              android:layout_marginStart="6dp"
+              app:layout_constraintHorizontal_weight="1"
+              app:layout_constraintStart_toEndOf="@id/strength_bar_2"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintBottom_toBottomOf="parent" />
+          </androidx.constraintlayout.widget.ConstraintLayout>
+
+          <!-- Criteria Tags -->
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+            <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/signup_rule_length"
+              app:drawableStartCompat="@drawable/signup_rule"
+              android:drawablePadding="4dp"
+              android:textSize="11sp"
+              android:textColor="@color/finora_muted"
+              android:background="@drawable/receipt_onboarding_feature"
+              android:paddingHorizontal="8dp"
+              android:paddingVertical="3dp" />
+            <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/signup_rule_upper"
+              app:drawableStartCompat="@drawable/signup_rule"
+              android:drawablePadding="4dp"
+              android:textSize="11sp"
+              android:textColor="@color/finora_muted"
+              android:background="@drawable/receipt_onboarding_feature"
+              android:paddingHorizontal="8dp"
+              android:paddingVertical="3dp"
+              android:layout_marginStart="6dp" />
+            <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="@string/signup_rule_number"
+              app:drawableStartCompat="@drawable/signup_rule"
+              android:drawablePadding="4dp"
+              android:textSize="11sp"
+              android:textColor="@color/finora_muted"
+              android:background="@drawable/receipt_onboarding_feature"
+              android:paddingHorizontal="8dp"
+              android:paddingVertical="3dp"
+              android:layout_marginStart="6dp" />
+          </LinearLayout>
+        </LinearLayout>
+
+        <!-- 5. Confirm Password Field -->
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="16dp"
+          android:text="@string/signup_confirm_label"
+          android:textColor="@color/finora_ink"
+          android:textSize="14sp"
+          android:fontFamily="sans-serif"
+          android:includeFontPadding="false"
+          android:labelFor="@id/signup_confirm_password"
+          android:textStyle="bold" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="48dp"
+          android:layout_marginTop="6dp"
+          android:paddingStart="14dp"
+          android:paddingEnd="0dp"
+          android:background="@drawable/login_input">
+          <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/signup_confirm"
+            android:importantForAccessibility="no"
+            android:id="@+id/register_signup_confirm"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/signup_confirm_password"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+          <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signup_confirm_password"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:background="@null"
+            android:padding="0dp"
+            android:hint="@string/signup_confirm_hint"
+            android:inputType="textPassword"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:textColor="@color/finora_ink"
+            android:textColorHint="@color/finora_hint"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif"
+            app:layout_constraintStart_toEndOf="@id/register_signup_confirm"
+            app:layout_constraintEnd_toStartOf="@id/signup_confirm_toggle"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+          <FrameLayout
+            android:id="@+id/signup_confirm_toggle"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:contentDescription="@string/signup_show_confirm_desc"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:layout_constraintStart_toEndOf="@id/signup_confirm_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <ImageView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:src="@drawable/signup_eye"
+              android:importantForAccessibility="no"
+              android:layout_gravity="center" />
+          </FrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+          android:id="@+id/signup_confirm_error"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="4dp"
+          android:textColor="@color/finora_error"
+          android:textSize="12sp"
+          android:visibility="gone" />
+
+        <!-- 6. Agree Terms Checkbox -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="16dp">
+          <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/signup_terms_check"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            app:buttonTint="@null"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:drawablePadding="10dp"
+            android:text="@string/signup_terms"
+            android:textColor="@color/finora_ink"
+            android:textSize="12sp"
+            app:buttonCompat="@null"
+            android:drawableStart="@drawable/login_checkbox"
+            android:gravity="center_vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+          android:id="@+id/signup_terms_error"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="4dp"
+          android:text="@string/signup_accept_terms"
+          android:textColor="@color/finora_error"
+          android:textSize="12sp"
+          android:visibility="gone" />
+
+        <!-- Primary Action CTA Button (#006455 Emerald Green, 16dp rounded) -->
+        <com.google.android.material.button.MaterialButton
+          android:id="@+id/signup_submit"
+          android:layout_width="match_parent"
+          android:layout_height="52dp"
+          android:insetTop="0dp"
+          android:insetBottom="0dp"
+          android:text="@string/signup_submit"
+          app:icon="@drawable/signup_arrow"
+          app:iconGravity="textEnd"
+          app:iconPadding="8dp"
+          app:iconTint="@color/white"
+          android:textColor="@color/white"
+          android:textSize="18sp"
+          android:textStyle="bold"
+          android:textAllCaps="false"
+          app:cornerRadius="16dp"
+          app:backgroundTint="@color/finora_emerald"
+          android:layout_marginTop="20dp" />
+
+        <TextView
+          android:id="@+id/signup_error_banner"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:textColor="@color/finora_error"
+          android:textSize="12sp"
+          android:layout_marginTop="8dp"
+          android:gravity="center"
+          android:visibility="gone" />
+      </LinearLayout>
+
+      <!-- Social Registration Divider -->
+      <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:paddingHorizontal="16dp">
+        <View
+          android:layout_width="0dp"
+          android:layout_height="1dp"
+          android:background="@color/finora_divider"
+          android:id="@+id/register_finora_divider"
+          app:layout_constraintHorizontal_weight="1"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintEnd_toStartOf="@id/register_signup_social_title"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent" />
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/signup_social_title"
+          android:textColor="@color/finora_hint"
+          android:textSize="11sp"
+          android:fontFamily="sans-serif"
+          android:includeFontPadding="false"
+          android:letterSpacing="0.05"
+          android:id="@+id/register_signup_social_title"
+          app:layout_constraintStart_toEndOf="@id/register_finora_divider"
+          app:layout_constraintEnd_toStartOf="@id/register_finora_divider_2"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent"
+          android:layout_marginStart="8dp"
+          android:layout_marginEnd="8dp" />
+        <View
+          android:layout_width="0dp"
+          android:layout_height="1dp"
+          android:background="@color/finora_divider"
+          android:id="@+id/register_finora_divider_2"
+          app:layout_constraintHorizontal_weight="1"
+          app:layout_constraintStart_toEndOf="@id/register_signup_social_title"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent" />
+      </androidx.constraintlayout.widget.ConstraintLayout>
+
+      <!-- Social Registration Buttons (Google & Apple) -->
+      <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp">
+        <LinearLayout
+          android:id="@+id/signup_google"
+          android:layout_width="0dp"
+          android:layout_height="0dp"
+          android:layout_marginEnd="4dp"
+          android:orientation="horizontal"
+          android:gravity="center"
+          android:background="@drawable/login_input"
+          android:clickable="true"
+          android:focusable="true"
+          app:layout_constraintHorizontal_weight="1"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintEnd_toStartOf="@id/signup_apple"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent">
+          <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/signup_google"
+            android:importantForAccessibility="no" />
+          <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/signup_google"
+            android:textColor="@color/finora_ink"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif"
+            android:includeFontPadding="false"
+            android:layout_marginStart="8dp"
+            android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+          android:id="@+id/signup_apple"
+          android:layout_width="0dp"
+          android:layout_height="0dp"
+          android:layout_marginStart="4dp"
+          android:orientation="horizontal"
+          android:gravity="center"
+          android:background="@drawable/login_input"
+          android:clickable="true"
+          android:focusable="true"
+          app:layout_constraintHorizontal_weight="1"
+          app:layout_constraintStart_toEndOf="@id/signup_google"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent">
+          <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/signup_apple"
+            android:importantForAccessibility="no" />
+          <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/signup_apple"
+            android:textColor="@color/finora_ink"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif"
+            android:includeFontPadding="false"
+            android:layout_marginStart="8dp"
+            android:textStyle="bold" />
+        </LinearLayout>
+      </androidx.constraintlayout.widget.ConstraintLayout>
+
+      <!-- Micro Visual Inspiration Card -->
+      <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="16dp"
+        android:background="@drawable/receipt_onboarding_feature">
+        <FrameLayout
+          android:layout_width="40dp"
+          android:layout_height="40dp"
+          android:background="@drawable/receipt_onboarding_feature_icon"
+          android:id="@+id/register_receipt_onboarding_feature_icon"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintEnd_toStartOf="@id/register_linear_layout"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent">
+          <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/signup_savings"
+            android:importantForAccessibility="no"
+            android:layout_gravity="center" />
+        </FrameLayout>
+        <LinearLayout
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="12dp"
+          android:orientation="vertical"
+          android:id="@+id/register_linear_layout"
+          app:layout_constraintStart_toEndOf="@id/register_receipt_onboarding_feature_icon"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent">
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/signup_savings_title"
+            android:textColor="@color/finora_ink"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif"
+            android:includeFontPadding="false"
+            android:textStyle="bold" />
+          <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/signup_savings_body"
+            android:textColor="@color/finora_secondary"
+            android:textSize="12sp"
+            android:fontFamily="sans-serif"
+            android:includeFontPadding="false"
+            android:layout_marginTop="2dp" />
+        </LinearLayout>
+      </androidx.constraintlayout.widget.ConstraintLayout>
+
+      <!-- Footer Sign In Link -->
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="@string/signup_login_question"
+          android:textColor="@color/finora_secondary"
+          android:textSize="14sp"
+          android:fontFamily="sans-serif"
+          android:includeFontPadding="false" />
+        <com.google.android.material.button.MaterialButton
+          android:id="@+id/signup_login_button"
+          style="@style/Widget.Material3.Button.TextButton"
+          android:layout_width="wrap_content"
+          android:layout_height="48dp"
+          android:paddingHorizontal="4dp"
+          android:insetLeft="0dp"
+          android:insetRight="0dp"
+          android:minWidth="0dp"
+          android:text="@string/signup_login"
+          android:textSize="14sp"
+          android:textStyle="bold"
+          android:textColor="@color/finora_emerald" />
+      </LinearLayout>
+
+    </LinearLayout>
+  </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

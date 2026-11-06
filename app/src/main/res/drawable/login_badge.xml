@@ -1,1 +1,1 @@
-<shape xmlns:android="http://schemas.android.com/apk/res/android"><solid android:color="@color/login_secondary_button"/><corners android:radius="999dp"/></shape>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"><solid android:color="@color/finora_mint"/><corners android:radius="999dp"/></shape>

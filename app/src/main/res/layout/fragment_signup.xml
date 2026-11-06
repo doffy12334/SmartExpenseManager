@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/login_background">
-    <LinearLayout
-        android:layout_width="match_parent"
+    android:background="@color/finora_background">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
         android:layout_height="64dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
         android:paddingHorizontal="16dp"
-        android:background="@color/login_background"
-        android:elevation="2dp">
+        android:background="@color/finora_background"
+        android:elevation="2dp"
+        android:id="@+id/signup_header_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
         <FrameLayout
             android:layout_width="48dp"
             android:layout_height="48dp"
@@ -19,7 +20,11 @@
             android:contentDescription="@string/signup_back_desc"
             android:clickable="true"
             android:focusable="true"
-            android:foreground="?attr/selectableItemBackground">
+            android:foreground="?attr/selectableItemBackground"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/signup_badge_bg"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
             <ImageView
                 android:layout_width="16dp"
                 android:layout_height="16dp"
@@ -28,13 +33,16 @@
                 android:importantForAccessibility="no"
                 android:layout_gravity="center" />
         </FrameLayout>
-        <View
-            android:layout_width="8dp"
-            android:layout_height="1dp" />
         <FrameLayout
             android:layout_width="28dp"
             android:layout_height="28dp"
-            android:background="@drawable/signup_badge_bg">
+            android:background="@drawable/signup_badge_bg"
+            android:layout_marginStart="8dp"
+            android:id="@+id/signup_badge_bg"
+            app:layout_constraintStart_toEndOf="@id/signup_back"
+            app:layout_constraintEnd_toStartOf="@id/signup_brand"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
             <ImageView
                 android:layout_width="14.25dp"
                 android:layout_height="13.5dp"
@@ -43,34 +51,43 @@
                 android:importantForAccessibility="no"
                 android:layout_gravity="center" />
         </FrameLayout>
-        <View
-            android:layout_width="4dp"
-            android:layout_height="1dp" />
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/signup_brand"
-            android:textColor="@color/login_text"
+            android:textColor="@color/finora_ink"
             android:textSize="16sp"
-            android:fontFamily="sans-serif-medium" />
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" />
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginStart="4dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:id="@+id/signup_brand"
+            app:layout_constraintStart_toEndOf="@id/signup_badge_bg"
+            app:layout_constraintEnd_toStartOf="@id/signup_header"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/signup_header"
-            android:textColor="@color/login_secondary"
+            android:textColor="@color/finora_secondary"
             android:textSize="14sp"
-            android:fontFamily="sans-serif-medium" />
-        <View
-            android:layout_width="8dp"
-            android:layout_height="1dp" />
+            android:fontFamily="sans-serif-medium"
+            android:id="@+id/signup_header"
+            app:layout_constraintStart_toEndOf="@id/signup_brand"
+            app:layout_constraintEnd_toStartOf="@id/signup_account_bg"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
         <FrameLayout
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:background="@drawable/signup_account_bg">
+            android:background="@drawable/signup_account_bg"
+            android:layout_marginStart="8dp"
+            android:id="@+id/signup_account_bg"
+            app:layout_constraintStart_toEndOf="@id/signup_header"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
             <ImageView
                 android:layout_width="12dp"
                 android:layout_height="12dp"
@@ -79,13 +96,17 @@
                 android:importantForAccessibility="no"
                 android:layout_gravity="center" />
         </FrameLayout>
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1"
         android:fillViewport="true"
-        android:clipToPadding="false">
+        android:clipToPadding="false"
+        android:id="@+id/signup_scroll"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signup_header_2"
+        app:layout_constraintBottom_toBottomOf="parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -122,7 +143,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/signup_welcome_badge"
-                        android:textColor="@color/login_secondary"
+                        android:textColor="@color/finora_secondary"
                         android:textSize="11sp" />
                 </LinearLayout>
                 <View
@@ -132,7 +153,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/signup_title"
-                    android:textColor="@color/login_text"
+                    android:textColor="@color/finora_ink"
                     android:textSize="24sp"
                     android:fontFamily="sans-serif-medium" />
                 <View
@@ -142,7 +163,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/signup_subtitle"
-                    android:textColor="@color/login_secondary"
+                    android:textColor="@color/finora_secondary"
                     android:textSize="14sp" />
             </LinearLayout>
             <View
@@ -174,7 +195,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/signup_privacy"
-                    android:textColor="@color/login_secondary"
+                    android:textColor="@color/finora_secondary"
                     android:textSize="12sp" />
             </LinearLayout>
             <View
@@ -184,18 +205,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/signup_name_label"
-                android:textColor="@color/login_text"
+                android:textColor="@color/finora_ink"
                 android:textSize="14sp"
                 android:fontFamily="sans-serif-medium"
                 android:labelFor="@id/signup_name" />
             <View
                 android:layout_width="1dp"
                 android:layout_height="6dp" />
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
                 android:background="@drawable/signup_field_bg"
                 android:paddingHorizontal="14dp">
                 <ImageView
@@ -203,23 +222,31 @@
                     android:layout_height="16.6667dp"
                     android:src="@drawable/signup_identity"
                     android:scaleType="fitCenter"
-                    android:importantForAccessibility="no" />
+                    android:importantForAccessibility="no"
+                    android:id="@+id/signup_identity"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/signup_name"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
                 <EditText
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_height="0dp"
                     android:id="@+id/signup_name"
                     android:hint="@string/signup_name_hint"
                     android:textSize="16sp"
-                    android:textColor="@color/login_text"
-                    android:textColorHint="@color/login_hint"
+                    android:textColor="@color/finora_ink"
+                    android:textColorHint="@color/finora_hint"
                     android:background="@null"
                     android:padding="0dp"
                     android:inputType="textPersonName"
                     android:imeOptions="actionNext"
                     android:autofillHints="name"
-                    android:maxLines="1" />
-            </LinearLayout>
+                    android:maxLines="1"
+                    app:layout_constraintStart_toEndOf="@id/signup_identity"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
             <View
                 android:layout_width="1dp"
                 android:layout_height="16dp" />
@@ -227,18 +254,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/signup_phone_label"
-                android:textColor="@color/login_text"
+                android:textColor="@color/finora_ink"
                 android:textSize="14sp"
                 android:fontFamily="sans-serif-medium"
                 android:labelFor="@id/signup_phone" />
             <View
                 android:layout_width="1dp"
                 android:layout_height="6dp" />
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:layout_height="wrap_content">
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="52dp"
@@ -250,12 +275,16 @@
                     android:contentDescription="@string/signup_country_desc"
                     android:clickable="true"
                     android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground">
+                    android:foreground="?attr/selectableItemBackground"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/signup_field_bg"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/signup_phone_prefix"
-                        android:textColor="@color/login_text"
+                        android:textColor="@color/finora_ink"
                         android:textSize="14sp"
                         android:fontFamily="sans-serif-medium" />
                     <View
@@ -268,40 +297,48 @@
                         android:scaleType="fitCenter"
                         android:importantForAccessibility="no" />
                 </LinearLayout>
-                <View
-                    android:layout_width="8dp"
-                    android:layout_height="1dp" />
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="0dp"
                     android:layout_height="52dp"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
                     android:background="@drawable/signup_field_bg"
                     android:paddingHorizontal="14dp"
-                    android:layout_weight="1">
+                    android:layout_marginStart="8dp"
+                    android:id="@+id/signup_field_bg"
+                    app:layout_constraintStart_toEndOf="@id/signup_country"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
                     <ImageView
                         android:layout_width="23dp"
                         android:layout_height="15dp"
                         android:src="@drawable/signup_phone"
                         android:scaleType="fitCenter"
-                        android:importantForAccessibility="no" />
+                        android:importantForAccessibility="no"
+                        android:id="@+id/signup_phone_2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/signup_phone"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
                     <EditText
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_height="0dp"
                         android:id="@+id/signup_phone"
                         android:hint="@string/signup_phone_hint"
                         android:textSize="16sp"
-                        android:textColor="@color/login_text"
-                        android:textColorHint="@color/login_hint"
+                        android:textColor="@color/finora_ink"
+                        android:textColorHint="@color/finora_hint"
                         android:background="@null"
                         android:padding="0dp"
                         android:inputType="phone"
                         android:imeOptions="actionNext"
                         android:autofillHints="phoneNational"
-                        android:maxLines="1" />
-                </LinearLayout>
-            </LinearLayout>
+                        android:maxLines="1"
+                        app:layout_constraintStart_toEndOf="@id/signup_phone_2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
             <View
                 android:layout_width="1dp"
                 android:layout_height="5dp" />
@@ -309,7 +346,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/signup_phone_helper"
-                android:textColor="@color/login_secondary"
+                android:textColor="@color/finora_secondary"
                 android:textSize="12sp" />
             <View
                 android:layout_width="1dp"
@@ -318,18 +355,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/signup_email_label"
-                android:textColor="@color/login_text"
+                android:textColor="@color/finora_ink"
                 android:textSize="14sp"
                 android:fontFamily="sans-serif-medium"
                 android:labelFor="@id/signup_email" />
             <View
                 android:layout_width="1dp"
                 android:layout_height="6dp" />
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
                 android:background="@drawable/signup_field_bg"
                 android:paddingHorizontal="14dp">
                 <ImageView
@@ -337,23 +372,31 @@
                     android:layout_height="16.6667dp"
                     android:src="@drawable/signup_email"
                     android:scaleType="fitCenter"
-                    android:importantForAccessibility="no" />
+                    android:importantForAccessibility="no"
+                    android:id="@+id/signup_email_2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/signup_email"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
                 <EditText
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_height="0dp"
                     android:id="@+id/signup_email"
                     android:hint="@string/signup_email_hint"
                     android:textSize="16sp"
-                    android:textColor="@color/login_text"
-                    android:textColorHint="@color/login_hint"
+                    android:textColor="@color/finora_ink"
+                    android:textColorHint="@color/finora_hint"
                     android:background="@null"
                     android:padding="0dp"
                     android:inputType="textEmailAddress"
                     android:imeOptions="actionNext"
                     android:autofillHints="emailAddress"
-                    android:maxLines="1" />
-            </LinearLayout>
+                    android:maxLines="1"
+                    app:layout_constraintStart_toEndOf="@id/signup_email_2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
             <View
                 android:layout_width="1dp"
                 android:layout_height="5dp" />
@@ -361,7 +404,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/signup_email_helper"
-                android:textColor="@color/login_secondary"
+                android:textColor="@color/finora_secondary"
                 android:textSize="12sp" />
             <View
                 android:layout_width="1dp"
@@ -370,18 +413,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/signup_password_label"
-                android:textColor="@color/login_text"
+                android:textColor="@color/finora_ink"
                 android:textSize="14sp"
                 android:fontFamily="sans-serif-medium"
                 android:labelFor="@id/signup_password" />
             <View
                 android:layout_width="1dp"
                 android:layout_height="6dp" />
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
                 android:background="@drawable/signup_field_bg"
                 android:paddingHorizontal="14dp"
                 android:paddingEnd="4dp">
@@ -390,31 +431,43 @@
                     android:layout_height="17.5dp"
                     android:src="@drawable/signup_lock"
                     android:scaleType="fitCenter"
-                    android:importantForAccessibility="no" />
+                    android:importantForAccessibility="no"
+                    android:id="@+id/signup_lock"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/signup_password"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
                 <EditText
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_height="0dp"
                     android:id="@+id/signup_password"
                     android:hint="@string/signup_password_hint"
                     android:textSize="16sp"
-                    android:textColor="@color/login_text"
-                    android:textColorHint="@color/login_hint"
+                    android:textColor="@color/finora_ink"
+                    android:textColorHint="@color/finora_hint"
                     android:background="@null"
                     android:padding="0dp"
                     android:inputType="textPassword"
                     android:imeOptions="actionNext"
                     android:autofillHints="newPassword"
                     android:maxLines="1"
-                    android:saveEnabled="false" />
+                    android:saveEnabled="false"
+                    app:layout_constraintStart_toEndOf="@id/signup_lock"
+                    app:layout_constraintEnd_toStartOf="@id/signup_show_password"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
                 <FrameLayout
                     android:layout_width="48dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:id="@+id/signup_show_password"
                     android:contentDescription="@string/signup_show_password_desc"
                     android:clickable="true"
                     android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground">
+                    android:foreground="?attr/selectableItemBackground"
+                    app:layout_constraintStart_toEndOf="@id/signup_password"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
                     <ImageView
                         android:layout_width="18.3333dp"
                         android:layout_height="12.5dp"
@@ -423,7 +476,7 @@
                         android:importantForAccessibility="no"
                         android:layout_gravity="center" />
                 </FrameLayout>
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
             <View
                 android:layout_width="1dp"
                 android:layout_height="10dp" />
@@ -433,62 +486,79 @@
                 android:orientation="vertical"
                 android:background="@drawable/login_input"
                 android:padding="12dp">
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:layout_height="wrap_content">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/signup_strength_label"
-                        android:textColor="@color/login_secondary"
-                        android:textSize="12sp" />
+                        android:textColor="@color/finora_secondary"
+                        android:textSize="12sp"
+                        android:id="@+id/signup_strength_label"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/signup_view"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
                     <View
                         android:layout_width="0dp"
                         android:layout_height="1dp"
-                        android:layout_weight="1" />
+                        android:id="@+id/signup_view"
+                        app:layout_constraintStart_toEndOf="@id/signup_strength_label"
+                        app:layout_constraintEnd_toStartOf="@id/signup_strength"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/signup_strength_empty"
-                        android:textColor="@color/login_hint"
+                        android:textColor="@color/finora_hint"
                         android:textSize="12sp"
-                        android:id="@+id/signup_strength" />
-                </LinearLayout>
+                        android:id="@+id/signup_strength"
+                        app:layout_constraintStart_toEndOf="@id/signup_view"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
                 <View
                     android:layout_width="1dp"
                     android:layout_height="8dp" />
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:layout_height="wrap_content">
                     <View
                         android:layout_width="0dp"
                         android:layout_height="6dp"
-                        android:layout_weight="1"
                         android:id="@+id/signup_bar_one"
-                        android:background="@drawable/signup_meter_bg" />
-                    <View
-                        android:layout_width="6dp"
-                        android:layout_height="1dp" />
+                        android:background="@drawable/signup_meter_bg"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/signup_bar_two"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
                     <View
                         android:layout_width="0dp"
                         android:layout_height="6dp"
-                        android:layout_weight="1"
                         android:id="@+id/signup_bar_two"
-                        android:background="@drawable/signup_meter_bg" />
-                    <View
-                        android:layout_width="6dp"
-                        android:layout_height="1dp" />
+                        android:background="@drawable/signup_meter_bg"
+                        android:layout_marginStart="6dp"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@id/signup_bar_one"
+                        app:layout_constraintEnd_toStartOf="@id/signup_bar_three"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
                     <View
                         android:layout_width="0dp"
                         android:layout_height="6dp"
-                        android:layout_weight="1"
                         android:id="@+id/signup_bar_three"
-                        android:background="@drawable/signup_meter_bg" />
-                </LinearLayout>
+                        android:background="@drawable/signup_meter_bg"
+                        android:layout_marginStart="6dp"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@id/signup_bar_two"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
                 <View
                     android:layout_width="1dp"
                     android:layout_height="8dp" />
@@ -519,7 +589,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/signup_rule_length"
-                            android:textColor="@color/login_hint"
+                            android:textColor="@color/finora_hint"
                             android:textSize="11sp"
                             android:id="@+id/signup_rule_length" />
                     </LinearLayout>
@@ -548,7 +618,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/signup_rule_upper"
-                            android:textColor="@color/login_hint"
+                            android:textColor="@color/finora_hint"
                             android:textSize="11sp"
                             android:id="@+id/signup_rule_upper" />
                     </LinearLayout>
@@ -577,7 +647,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/signup_rule_number"
-                            android:textColor="@color/login_hint"
+                            android:textColor="@color/finora_hint"
                             android:textSize="11sp"
                             android:id="@+id/signup_rule_number" />
                     </LinearLayout>
@@ -590,18 +660,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/signup_confirm_label"
-                android:textColor="@color/login_text"
+                android:textColor="@color/finora_ink"
                 android:textSize="14sp"
                 android:fontFamily="sans-serif-medium"
                 android:labelFor="@id/signup_confirm" />
             <View
                 android:layout_width="1dp"
                 android:layout_height="6dp" />
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
                 android:background="@drawable/signup_field_bg"
                 android:paddingHorizontal="14dp"
                 android:paddingEnd="4dp">
@@ -610,31 +678,43 @@
                     android:layout_height="16.6667dp"
                     android:src="@drawable/signup_confirm"
                     android:scaleType="fitCenter"
-                    android:importantForAccessibility="no" />
+                    android:importantForAccessibility="no"
+                    android:id="@+id/signup_confirm_2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/signup_confirm"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
                 <EditText
                     android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_height="0dp"
                     android:id="@+id/signup_confirm"
                     android:hint="@string/signup_confirm_hint"
                     android:textSize="16sp"
-                    android:textColor="@color/login_text"
-                    android:textColorHint="@color/login_hint"
+                    android:textColor="@color/finora_ink"
+                    android:textColorHint="@color/finora_hint"
                     android:background="@null"
                     android:padding="0dp"
                     android:inputType="textPassword"
                     android:imeOptions="actionDone"
                     android:autofillHints="newPassword"
                     android:maxLines="1"
-                    android:saveEnabled="false" />
+                    android:saveEnabled="false"
+                    app:layout_constraintStart_toEndOf="@id/signup_confirm_2"
+                    app:layout_constraintEnd_toStartOf="@id/signup_show_confirm"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
                 <FrameLayout
                     android:layout_width="48dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:id="@+id/signup_show_confirm"
                     android:contentDescription="@string/signup_show_confirm_desc"
                     android:clickable="true"
                     android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground">
+                    android:foreground="?attr/selectableItemBackground"
+                    app:layout_constraintStart_toEndOf="@id/signup_confirm"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
                     <ImageView
                         android:layout_width="18.3333dp"
                         android:layout_height="12.5dp"
@@ -643,7 +723,7 @@
                         android:importantForAccessibility="no"
                         android:layout_gravity="center" />
                 </FrameLayout>
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
             <View
                 android:layout_width="1dp"
                 android:layout_height="16dp" />
@@ -654,9 +734,9 @@
                 android:minHeight="48dp"
                 android:gravity="center_vertical"
                 android:text="@string/signup_terms"
-                android:textColor="@color/login_secondary"
+                android:textColor="@color/finora_secondary"
                 android:textSize="12sp"
-                android:buttonTint="@color/login_accent"
+                android:buttonTint="@color/finora_emerald"
                 android:paddingStart="4dp" />
             <View
                 android:layout_width="1dp"
@@ -693,48 +773,54 @@
             <View
                 android:layout_width="1dp"
                 android:layout_height="28dp" />
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:layout_height="wrap_content">
                 <View
                     android:layout_width="0dp"
                     android:layout_height="1dp"
-                    android:layout_weight="1"
-                    android:background="@color/signup_chip" />
-                <View
-                    android:layout_width="10dp"
-                    android:layout_height="1dp" />
+                    android:background="@color/finora_chip_bg"
+                    android:id="@+id/signup_finora_chip_bg"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/signup_social_title"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/signup_social_title"
-                    android:textColor="@color/login_hint"
+                    android:textColor="@color/finora_hint"
                     android:textSize="11sp"
-                    android:letterSpacing="0.05" />
-                <View
-                    android:layout_width="10dp"
-                    android:layout_height="1dp" />
+                    android:letterSpacing="0.05"
+                    android:layout_marginStart="10dp"
+                    android:id="@+id/signup_social_title"
+                    app:layout_constraintStart_toEndOf="@id/signup_finora_chip_bg"
+                    app:layout_constraintEnd_toStartOf="@id/signup_finora_chip_bg_2"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
                 <View
                     android:layout_width="0dp"
                     android:layout_height="1dp"
-                    android:layout_weight="1"
-                    android:background="@color/signup_chip" />
-            </LinearLayout>
+                    android:background="@color/finora_chip_bg"
+                    android:layout_marginStart="10dp"
+                    android:id="@+id/signup_finora_chip_bg_2"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toEndOf="@id/signup_social_title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
             <View
                 android:layout_width="1dp"
                 android:layout_height="16dp" />
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:layout_height="wrap_content">
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="48dp"
                     android:orientation="horizontal"
-                    android:layout_weight="1"
                     android:background="@drawable/dashboard_white_tile"
                     android:gravity="center"
                     android:elevation="1dp"
@@ -742,7 +828,12 @@
                     android:contentDescription="@string/signup_google_desc"
                     android:clickable="true"
                     android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground">
+                    android:foreground="?attr/selectableItemBackground"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/signup_apple"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
@@ -756,18 +847,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/signup_google"
-                        android:textColor="@color/login_text"
+                        android:textColor="@color/finora_ink"
                         android:textSize="14sp"
                         android:fontFamily="sans-serif-medium" />
                 </LinearLayout>
-                <View
-                    android:layout_width="8dp"
-                    android:layout_height="1dp" />
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="48dp"
                     android:orientation="horizontal"
-                    android:layout_weight="1"
                     android:background="@drawable/dashboard_white_tile"
                     android:gravity="center"
                     android:elevation="1dp"
@@ -775,7 +862,13 @@
                     android:contentDescription="@string/signup_apple_desc"
                     android:clickable="true"
                     android:focusable="true"
-                    android:foreground="?attr/selectableItemBackground">
+                    android:foreground="?attr/selectableItemBackground"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toEndOf="@id/signup_google"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
@@ -789,25 +882,28 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/signup_apple"
-                        android:textColor="@color/login_text"
+                        android:textColor="@color/finora_ink"
                         android:textSize="14sp"
                         android:fontFamily="sans-serif-medium" />
                 </LinearLayout>
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
             <View
                 android:layout_width="1dp"
                 android:layout_height="24dp" />
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
                 android:padding="16dp"
                 android:background="@drawable/signup_savings_bg">
                 <FrameLayout
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@drawable/signup_savings_badge">
+                    android:background="@drawable/signup_savings_badge"
+                    android:id="@+id/signup_savings_badge"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/signup_linear_layout"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
                     <ImageView
                         android:layout_width="18.3333dp"
                         android:layout_height="17.4167dp"
@@ -816,29 +912,31 @@
                         android:importantForAccessibility="no"
                         android:layout_gravity="center" />
                 </FrameLayout>
-                <View
-                    android:layout_width="12dp"
-                    android:layout_height="1dp" />
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_weight="1">
+                    android:layout_marginStart="12dp"
+                    android:id="@+id/signup_linear_layout"
+                    app:layout_constraintStart_toEndOf="@id/signup_savings_badge"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/signup_savings_title"
-                        android:textColor="@color/login_text"
+                        android:textColor="@color/finora_ink"
                         android:textSize="12sp"
                         android:fontFamily="sans-serif-medium" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/signup_savings_body"
-                        android:textColor="@color/login_secondary"
+                        android:textColor="@color/finora_secondary"
                         android:textSize="12sp" />
                 </LinearLayout>
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
             <View
                 android:layout_width="1dp"
                 android:layout_height="22dp" />
@@ -851,7 +949,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/signup_login_question"
-                    android:textColor="@color/login_secondary"
+                    android:textColor="@color/finora_secondary"
                     android:textSize="14sp" />
                 <View
                     android:layout_width="8dp"
@@ -860,7 +958,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/signup_login"
-                    android:textColor="@color/login_accent"
+                    android:textColor="@color/finora_emerald"
                     android:textSize="14sp"
                     android:fontFamily="sans-serif-medium"
                     android:minHeight="48dp"
@@ -873,4 +971,4 @@
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

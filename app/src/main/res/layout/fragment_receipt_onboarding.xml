@@ -62,7 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/receipt_onboarding_ocr"
-            android:textColor="@color/onboarding_text"
+            android:textColor="@color/finora_ink"
             android:textSize="11sp"
             android:fontFamily="sans-serif"
             android:includeFontPadding="false"
@@ -74,21 +74,23 @@
           android:layout_height="2dp"
           android:layout_gravity="center_vertical"
           android:background="@drawable/receipt_onboarding_scan_line" />
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_gravity="bottom"
           android:layout_margin="12dp"
           android:padding="10dp"
-          android:orientation="horizontal"
-          android:gravity="center_vertical"
           android:background="@drawable/receipt_onboarding_preview"
-          android:elevation="3dp"
-          android:baselineAligned="false">
+          android:elevation="3dp">
           <FrameLayout
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:background="@drawable/receipt_onboarding_dining_bg">
+            android:background="@drawable/receipt_onboarding_dining_bg"
+            android:id="@+id/receipt_onboarding_dining_bg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/receipt_onboarding_linear_layout_3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
             <ImageView
               android:layout_width="11.25dp"
               android:layout_height="15dp"
@@ -99,15 +101,19 @@
           <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="4dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:id="@+id/receipt_onboarding_linear_layout_3"
+            app:layout_constraintStart_toEndOf="@id/receipt_onboarding_dining_bg"
+            app:layout_constraintEnd_toStartOf="@id/receipt_onboarding_linear_layout_4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
             <TextView
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:text="@string/receipt_onboarding_merchant"
-              android:textColor="@color/onboarding_text"
+              android:textColor="@color/finora_ink"
               android:textSize="12sp"
               android:fontFamily="sans-serif"
               android:includeFontPadding="false"
@@ -118,7 +124,7 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:text="@string/receipt_onboarding_category"
-              android:textColor="@color/onboarding_secondary"
+              android:textColor="@color/finora_secondary"
               android:textSize="12sp"
               android:fontFamily="sans-serif"
               android:includeFontPadding="false"
@@ -130,12 +136,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="end"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:id="@+id/receipt_onboarding_linear_layout_4"
+            app:layout_constraintStart_toEndOf="@id/receipt_onboarding_linear_layout_3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
             <TextView
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:text="@string/receipt_onboarding_amount"
-              android:textColor="@color/onboarding_primary"
+              android:textColor="@color/finora_emerald"
               android:textSize="18sp"
               android:fontFamily="sans-serif"
               android:includeFontPadding="false"
@@ -146,7 +157,7 @@
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:text="@string/receipt_onboarding_matched"
-              android:textColor="@color/onboarding_primary"
+              android:textColor="@color/finora_emerald"
               android:textSize="11sp"
               android:fontFamily="sans-serif"
               android:includeFontPadding="false"
@@ -156,29 +167,33 @@
               android:paddingVertical="2dp"
               android:gravity="end" />
           </LinearLayout>
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
       </FrameLayout>
 
-      <LinearLayout
+      <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:baselineAligned="false"
         android:layout_marginTop="8dp">
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
           android:layout_width="0dp"
           android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:orientation="horizontal"
-          android:gravity="center_vertical"
           android:padding="10dp"
           android:background="@drawable/receipt_onboarding_metric"
           android:layout_marginEnd="2dp"
-          android:baselineAligned="false">
+          android:id="@+id/receipt_onboarding_metric"
+          app:layout_constraintHorizontal_weight="1"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintEnd_toStartOf="@id/receipt_onboarding_metric_2"
+          app:layout_constraintTop_toTopOf="parent">
           <FrameLayout
             android:layout_width="28dp"
             android:layout_height="28dp"
-            android:background="@drawable/receipt_onboarding_trend_bg">
+            android:background="@drawable/receipt_onboarding_trend_bg"
+            android:id="@+id/receipt_onboarding_trend_bg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/receipt_onboarding_linear_layout_2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
             <ImageView
               android:layout_width="14.667dp"
               android:layout_height="11.333dp"
@@ -189,14 +204,18 @@
           <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginStart="8dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:id="@+id/receipt_onboarding_linear_layout_2"
+            app:layout_constraintStart_toEndOf="@id/receipt_onboarding_trend_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
             <TextView
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:text="@string/receipt_onboarding_week"
-              android:textColor="@color/onboarding_secondary"
+              android:textColor="@color/finora_secondary"
               android:textSize="11sp"
               android:fontFamily="sans-serif"
               android:includeFontPadding="false" />
@@ -204,28 +223,34 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:text="@string/receipt_onboarding_week_amount"
-              android:textColor="@color/onboarding_text"
+              android:textColor="@color/finora_ink"
               android:textSize="12sp"
               android:fontFamily="sans-serif"
               android:includeFontPadding="false"
               android:textStyle="bold"
               android:layout_marginTop="2dp" />
           </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
           android:layout_width="0dp"
           android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:orientation="horizontal"
-          android:gravity="center_vertical"
           android:padding="10dp"
           android:background="@drawable/receipt_onboarding_metric"
           android:layout_marginStart="2dp"
-          android:baselineAligned="false">
+          android:id="@+id/receipt_onboarding_metric_2"
+          app:layout_constraintHorizontal_weight="1"
+          app:layout_constraintStart_toEndOf="@id/receipt_onboarding_metric"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="parent">
           <FrameLayout
             android:layout_width="28dp"
             android:layout_height="28dp"
-            android:background="@drawable/receipt_onboarding_speed_bg">
+            android:background="@drawable/receipt_onboarding_speed_bg"
+            android:id="@+id/receipt_onboarding_speed_bg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/receipt_onboarding_linear_layout"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
             <ImageView
               android:layout_width="10.667dp"
               android:layout_height="13.333dp"
@@ -236,14 +261,18 @@
           <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginStart="8dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:id="@+id/receipt_onboarding_linear_layout"
+            app:layout_constraintStart_toEndOf="@id/receipt_onboarding_speed_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
             <TextView
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:text="@string/receipt_onboarding_speed"
-              android:textColor="@color/onboarding_secondary"
+              android:textColor="@color/finora_secondary"
               android:textSize="11sp"
               android:fontFamily="sans-serif"
               android:includeFontPadding="false" />
@@ -251,15 +280,15 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:text="@string/receipt_onboarding_speed_value"
-              android:textColor="@color/onboarding_text"
+              android:textColor="@color/finora_ink"
               android:textSize="12sp"
               android:fontFamily="sans-serif"
               android:includeFontPadding="false"
               android:textStyle="bold"
               android:layout_marginTop="2dp" />
           </LinearLayout>
-        </LinearLayout>
-      </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+      </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -285,7 +314,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/receipt_onboarding_badge"
-        android:textColor="@color/onboarding_primary"
+        android:textColor="@color/finora_emerald"
         android:textSize="11sp"
         android:fontFamily="sans-serif"
         android:includeFontPadding="false"
@@ -298,7 +327,7 @@
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:text="@string/receipt_onboarding_title"
-      android:textColor="@color/onboarding_text"
+      android:textColor="@color/finora_ink"
       android:textSize="24sp"
       android:fontFamily="sans-serif"
       android:includeFontPadding="false"
@@ -318,7 +347,7 @@
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:text="@string/receipt_onboarding_description"
-      android:textColor="@color/onboarding_secondary"
+      android:textColor="@color/finora_secondary"
       android:textSize="14sp"
       android:fontFamily="sans-serif"
       android:includeFontPadding="false"
@@ -362,7 +391,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/receipt_onboarding_recognition_title"
-        android:textColor="@color/onboarding_text"
+        android:textColor="@color/finora_ink"
         android:textSize="14sp"
         android:fontFamily="sans-serif"
         android:includeFontPadding="false"
@@ -377,7 +406,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/receipt_onboarding_recognition_body"
-        android:textColor="@color/onboarding_secondary"
+        android:textColor="@color/finora_secondary"
         android:textSize="12sp"
         android:fontFamily="sans-serif"
         android:includeFontPadding="false"
@@ -420,7 +449,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/receipt_onboarding_report_title"
-        android:textColor="@color/onboarding_text"
+        android:textColor="@color/finora_ink"
         android:textSize="14sp"
         android:fontFamily="sans-serif"
         android:includeFontPadding="false"
@@ -435,7 +464,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/receipt_onboarding_report_body"
-        android:textColor="@color/onboarding_secondary"
+        android:textColor="@color/finora_secondary"
         android:textSize="12sp"
         android:fontFamily="sans-serif"
         android:includeFontPadding="false"

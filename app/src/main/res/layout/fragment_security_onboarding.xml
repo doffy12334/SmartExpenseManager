@@ -84,7 +84,7 @@
                         android:fontFamily="sans-serif"
                         android:includeFontPadding="false"
                         android:text="@string/onboarding_encryption"
-                        android:textColor="#FFFFFF"
+                        android:textColor="@color/white"
                         android:textSize="11sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -144,7 +144,7 @@
                         android:fontFamily="sans-serif"
                         android:includeFontPadding="false"
                         android:text="@string/onboarding_biometric"
-                        android:textColor="@color/onboarding_text"
+                        android:textColor="@color/finora_ink"
                         android:textSize="11sp" />
 
                     <TextView
@@ -154,7 +154,7 @@
                         android:fontFamily="sans-serif"
                         android:includeFontPadding="false"
                         android:text="@string/onboarding_biometric_value"
-                        android:textColor="@color/onboarding_primary"
+                        android:textColor="@color/finora_emerald"
                         android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -198,7 +198,7 @@
                         android:fontFamily="sans-serif"
                         android:includeFontPadding="false"
                         android:text="@string/onboarding_dual_backup"
-                        android:textColor="@color/onboarding_text"
+                        android:textColor="@color/finora_ink"
                         android:textSize="11sp" />
 
                     <TextView
@@ -208,7 +208,7 @@
                         android:fontFamily="sans-serif"
                         android:includeFontPadding="false"
                         android:text="@string/onboarding_cloud_value"
-                        android:textColor="@color/onboarding_primary"
+                        android:textColor="@color/finora_emerald"
                         android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>
@@ -232,7 +232,7 @@
           android:layout_height="wrap_content"
           android:text="@string/onboarding_bank_security"
           android:textSize="12sp"
-          android:textColor="@color/onboarding_primary"
+          android:textColor="@color/finora_emerald"
           android:fontFamily="sans-serif"
           android:includeFontPadding="false"
           android:textStyle="bold"
@@ -246,7 +246,7 @@
       android:layout_height="wrap_content"
       android:text="@string/onboarding_title"
       android:textSize="24sp"
-      android:textColor="@color/onboarding_text"
+      android:textColor="@color/finora_ink"
       android:fontFamily="sans-serif"
       android:includeFontPadding="false"
       android:layout_marginTop="24dp"
@@ -263,7 +263,7 @@
       android:layout_height="wrap_content"
       android:text="@string/onboarding_description"
       android:textSize="14sp"
-      android:textColor="@color/onboarding_secondary"
+      android:textColor="@color/finora_secondary"
       android:fontFamily="sans-serif"
       android:includeFontPadding="false"
       android:layout_marginTop="4dp"
@@ -310,7 +310,7 @@
         android:layout_height="wrap_content"
         android:text="@string/onboarding_privacy_title"
         android:textSize="14sp"
-        android:textColor="@color/onboarding_text"
+        android:textColor="@color/finora_ink"
         android:fontFamily="sans-serif"
         android:includeFontPadding="false"
         android:textStyle="bold"
@@ -326,7 +326,7 @@
         android:layout_height="wrap_content"
         android:text="@string/onboarding_privacy_body"
         android:textSize="12sp"
-        android:textColor="@color/onboarding_secondary"
+        android:textColor="@color/finora_secondary"
         android:fontFamily="sans-serif"
         android:includeFontPadding="false"
         android:lineSpacingExtra="2dp"
@@ -371,7 +371,7 @@
         android:layout_height="wrap_content"
         android:text="@string/onboarding_backup_title"
         android:textSize="14sp"
-        android:textColor="@color/onboarding_text"
+        android:textColor="@color/finora_ink"
         android:fontFamily="sans-serif"
         android:includeFontPadding="false"
         android:textStyle="bold"
@@ -387,7 +387,7 @@
         android:layout_height="wrap_content"
         android:text="@string/onboarding_backup_body"
         android:textSize="12sp"
-        android:textColor="@color/onboarding_secondary"
+        android:textColor="@color/finora_secondary"
         android:fontFamily="sans-serif"
         android:includeFontPadding="false"
         android:lineSpacingExtra="2dp"

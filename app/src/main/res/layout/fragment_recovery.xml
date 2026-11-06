@@ -1,0 +1,862 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/finora_background"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="0dp"
+        android:background="@color/finora_background"
+        android:elevation="1dp"
+        android:id="@+id/recovery_header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/recovery_header_bg"
+            android:id="@+id/recovery_header_back_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:contentDescription="@string/recovery_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/recovery_header_logo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/recovery_header_back"
+            android:scaleType="center" />
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/recovery_brand_tile"
+            android:layout_marginStart="8dp"
+            android:id="@+id/recovery_header_logo"
+            app:layout_constraintStart_toEndOf="@id/recovery_header_back_button"
+            app:layout_constraintEnd_toStartOf="@id/recovery_header_brand"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/recovery_brand"
+            android:scaleType="center"
+            android:importantForAccessibility="no" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/login_brand"
+            android:textSize="16sp"
+            android:textColor="@color/finora_ink"
+            android:includeFontPadding="false"
+            android:fontFamily="sans-serif-medium"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:layout_marginStart="4dp"
+            android:id="@+id/recovery_header_brand"
+            app:layout_constraintStart_toEndOf="@id/recovery_header_logo"
+            app:layout_constraintEnd_toStartOf="@id/recovery_header_title"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/recovery_header"
+            android:textSize="14sp"
+            android:textColor="@color/finora_secondary"
+            android:includeFontPadding="false"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginStart="8dp"
+            android:id="@+id/recovery_header_title"
+            app:layout_constraintStart_toEndOf="@id/recovery_header_brand"
+            app:layout_constraintEnd_toStartOf="@id/recovery_header_account"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/recovery_account_tile"
+            android:layout_marginStart="8dp"
+            android:id="@+id/recovery_header_account"
+            app:layout_constraintStart_toEndOf="@id/recovery_header_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/recovery_account"
+            android:scaleType="center"
+            android:importantForAccessibility="no" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:id="@+id/recovery_scroll"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recovery_header"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="32dp"
+            android:focusableInTouchMode="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:paddingBottom="8dp">
+
+                <FrameLayout
+                    android:layout_width="100dp"
+                    android:layout_height="100dp">
+
+                    <FrameLayout
+                        android:layout_width="96dp"
+                        android:layout_height="96dp"
+                        android:background="@drawable/recovery_ring">
+
+                        <FrameLayout
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:background="@drawable/recovery_white_round"
+                            android:layout_gravity="center"
+                            android:elevation="3dp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/recovery_restore"
+                                android:importantForAccessibility="no"
+                                android:layout_gravity="center" />
+                        </FrameLayout>
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/recovery_primary_round"
+                        android:layout_gravity="bottom|end">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/recovery_shield"
+                            android:importantForAccessibility="no"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="4dp"
+                    android:background="@drawable/recovery_mint_pill"
+                    android:layout_marginTop="4dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/recovery_guard"
+                        android:importantForAccessibility="no" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/recovery_guard"
+                        android:textSize="11sp"
+                        android:textColor="@color/finora_muted"
+                        android:includeFontPadding="false"
+                        android:fontFamily="sans-serif-medium"
+                        android:layout_marginStart="6dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/login_forgot_password"
+                    android:textSize="24sp"
+                    android:textColor="@color/finora_ink"
+                    android:includeFontPadding="false"
+                    android:gravity="center"
+                    android:minHeight="32dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recovery_intro"
+                    android:textSize="14sp"
+                    android:textColor="@color/finora_secondary"
+                    android:includeFontPadding="false"
+                    android:gravity="center"
+                    android:maxWidth="320dp"
+                    android:minHeight="69dp"
+                    android:lineSpacingExtra="4dp"
+                    android:paddingHorizontal="5dp"
+                    android:layout_marginTop="3dp" />
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="8dp"
+                android:background="@drawable/recovery_surface"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:text="@string/recovery_one"
+                    android:textSize="11sp"
+                    android:textColor="@color/white"
+                    android:includeFontPadding="false"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-medium"
+                    android:background="@drawable/recovery_primary_round"
+                    android:id="@+id/recovery_step_one_number"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/recovery_step_one_label"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recovery_enter"
+                    android:textSize="11sp"
+                    android:textColor="@color/finora_emerald"
+                    android:includeFontPadding="false"
+                    android:fontFamily="sans-serif-medium"
+                    android:layout_marginStart="6dp"
+                    android:id="@+id/recovery_step_one_label"
+                    app:layout_constraintStart_toEndOf="@id/recovery_step_one_number"
+                    app:layout_constraintEnd_toStartOf="@id/recovery_step_first_divider"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:background="@color/recovery_outline"
+                    android:id="@+id/recovery_step_first_divider"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toEndOf="@id/recovery_step_one_label"
+                    app:layout_constraintEnd_toStartOf="@id/recovery_step_two_number"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:text="@string/recovery_two"
+                    android:textSize="11sp"
+                    android:textColor="@color/finora_secondary"
+                    android:includeFontPadding="false"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-medium"
+                    android:background="@drawable/recovery_inactive_round"
+                    android:alpha="0.6"
+                    android:id="@+id/recovery_step_two_number"
+                    app:layout_constraintStart_toEndOf="@id/recovery_step_first_divider"
+                    app:layout_constraintEnd_toStartOf="@id/recovery_step_two_label"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recovery_otp"
+                    android:textSize="11sp"
+                    android:textColor="@color/finora_secondary"
+                    android:includeFontPadding="false"
+                    android:fontFamily="sans-serif-medium"
+                    android:alpha="0.6"
+                    android:layout_marginStart="6dp"
+                    android:id="@+id/recovery_step_two_label"
+                    app:layout_constraintStart_toEndOf="@id/recovery_step_two_number"
+                    app:layout_constraintEnd_toStartOf="@id/recovery_step_second_divider"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:background="@color/recovery_outline"
+                    android:id="@+id/recovery_step_second_divider"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toEndOf="@id/recovery_step_two_label"
+                    app:layout_constraintEnd_toStartOf="@id/recovery_step_three_number"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:text="@string/recovery_three"
+                    android:textSize="11sp"
+                    android:textColor="@color/finora_secondary"
+                    android:includeFontPadding="false"
+                    android:gravity="center"
+                    android:fontFamily="sans-serif-medium"
+                    android:background="@drawable/recovery_inactive_round"
+                    android:alpha="0.6"
+                    android:id="@+id/recovery_step_three_number"
+                    app:layout_constraintStart_toEndOf="@id/recovery_step_second_divider"
+                    app:layout_constraintEnd_toStartOf="@id/recovery_step_three_label"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recovery_password"
+                    android:textSize="11sp"
+                    android:textColor="@color/finora_secondary"
+                    android:includeFontPadding="false"
+                    android:fontFamily="sans-serif-medium"
+                    android:alpha="0.6"
+                    android:layout_marginStart="6dp"
+                    android:id="@+id/recovery_step_three_label"
+                    app:layout_constraintStart_toEndOf="@id/recovery_step_three_number"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/recovery_method"
+                android:textSize="12sp"
+                android:textColor="@color/finora_secondary"
+                android:includeFontPadding="false"
+                android:fontFamily="sans-serif-medium"
+                android:paddingHorizontal="4dp"
+                android:letterSpacing="0.05"
+                android:layout_marginTop="12dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recovery_phone_card"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="16dp"
+                android:minHeight="88dp"
+                android:background="@drawable/recovery_card_bg"
+                android:elevation="1dp"
+                android:layout_marginTop="4dp">
+
+                <FrameLayout
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/recovery_mint_tile"
+                    android:id="@+id/recovery_phone_icon"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/recovery_phone_labels"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/recovery_phone"
+                        android:importantForAccessibility="no"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="8dp"
+                    android:id="@+id/recovery_phone_labels"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toEndOf="@id/recovery_phone_icon"
+                    app:layout_constraintEnd_toStartOf="@id/recovery_phone_indicator"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/recovery_phone"
+                            android:textSize="16sp"
+                            android:textColor="@color/finora_ink"
+                            android:includeFontPadding="false"
+                            android:fontFamily="sans-serif-medium" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/recovery_recommended"
+                            android:textSize="11sp"
+                            android:textColor="@color/recovery_badge_ink"
+                            android:includeFontPadding="false"
+                            android:fontFamily="sans-serif-medium"
+                            android:paddingHorizontal="8dp"
+                            android:paddingVertical="2dp"
+                            android:background="@drawable/recovery_recommended_bg"
+                            android:layout_marginStart="8dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/recovery_phone_detail"
+                        android:textSize="12sp"
+                        android:textColor="@color/finora_secondary"
+                        android:includeFontPadding="false"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:id="@+id/recovery_phone_indicator"
+                    android:background="@drawable/recovery_primary_round"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toEndOf="@id/recovery_phone_labels"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/recovery_check"
+                        android:importantForAccessibility="no"
+                        android:id="@+id/recovery_phone_check"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recovery_email_card"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="16dp"
+                android:minHeight="88dp"
+                android:background="@drawable/recovery_card_bg"
+                android:elevation="1dp"
+                android:layout_marginTop="4dp">
+
+                <ImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="@drawable/recovery_blue_tile"
+                    android:id="@+id/recovery_email_icon"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/recovery_email_labels"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:src="@drawable/recovery_email"
+                    android:scaleType="center"
+                    android:importantForAccessibility="no" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="8dp"
+                    android:id="@+id/recovery_email_labels"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toEndOf="@id/recovery_email_icon"
+                    app:layout_constraintEnd_toStartOf="@id/recovery_email_indicator"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/recovery_email"
+                        android:textSize="16sp"
+                        android:textColor="@color/finora_ink"
+                        android:includeFontPadding="false"
+                        android:fontFamily="sans-serif-medium" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/recovery_email_detail"
+                        android:textSize="12sp"
+                        android:textColor="@color/finora_secondary"
+                        android:includeFontPadding="false"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:id="@+id/recovery_email_indicator"
+                    android:background="@drawable/recovery_primary_round"
+                    android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toEndOf="@id/recovery_email_labels"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/recovery_check"
+                        android:importantForAccessibility="no"
+                        android:id="@+id/recovery_email_check"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/recovery_registered_phone"
+                android:textSize="14sp"
+                android:textColor="@color/finora_ink"
+                android:includeFontPadding="false"
+                android:id="@+id/recovery_field_label"
+                android:labelFor="@id/recovery_identifier"
+                android:paddingHorizontal="4dp"
+                android:layout_marginTop="20dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="0dp"
+                android:background="@drawable/recovery_surface"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recovery_prefix"
+                    android:textSize="12sp"
+                    android:textColor="@color/finora_secondary"
+                    android:includeFontPadding="false"
+                    android:id="@+id/recovery_prefix"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="10dp"
+                    android:fontFamily="sans-serif-medium"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/recovery_identifier"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:id="@+id/recovery_identifier"
+                    android:saveEnabled="false"
+                    android:singleLine="true"
+                    android:inputType="phone"
+                    android:textColor="@color/finora_ink"
+                    android:textColorHint="@color/recovery_placeholder"
+                    android:textSize="16sp"
+                    android:background="@null"
+                    android:padding="0dp"
+                    android:autofillHints="phone"
+                    app:layout_constraintHorizontal_weight="1"
+                    app:layout_constraintStart_toEndOf="@id/recovery_prefix"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_goneMarginStart="0dp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/recovery_security"
+                android:textSize="12sp"
+                android:textColor="@color/finora_secondary"
+                android:includeFontPadding="false"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="0dp"
+                android:layout_marginTop="8dp"
+                app:drawableStartCompat="@drawable/recovery_lock"
+                android:drawablePadding="6dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:gravity="center"
+                android:id="@+id/recovery_send_button"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="@drawable/recovery_submit_bg"
+                android:elevation="2dp"
+                android:layout_marginTop="20dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/recovery_send"
+                    android:importantForAccessibility="no" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recovery_send"
+                    android:textSize="14sp"
+                    android:textColor="@color/white"
+                    android:includeFontPadding="false"
+                    android:fontFamily="sans-serif-medium"
+                    android:id="@+id/recovery_send_label"
+                    android:layout_marginStart="6dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="16dp"
+                android:background="@drawable/recovery_surface"
+                android:layout_marginTop="24dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recovery_flow"
+                    android:textSize="14sp"
+                    android:textColor="@color/finora_ink"
+                    android:includeFontPadding="false"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    app:drawableStartCompat="@drawable/recovery_info"
+                    android:drawablePadding="6dp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal"
+                        android:paddingHorizontal="4dp"
+                        android:paddingVertical="8dp"
+                        android:background="@drawable/recovery_preview_tile"
+                        android:id="@+id/recovery_identify_tile"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/recovery_otp_tile"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/recovery_identify"
+                            android:importantForAccessibility="no" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/recovery_identify"
+                            android:textSize="11sp"
+                            android:textColor="@color/finora_ink"
+                            android:includeFontPadding="false"
+                            android:gravity="center"
+                            android:fontFamily="sans-serif-medium"
+                            android:layout_marginTop="4dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/recovery_account"
+                            android:textSize="11sp"
+                            android:textColor="@color/finora_secondary"
+                            android:includeFontPadding="false"
+                            android:gravity="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal"
+                        android:paddingHorizontal="4dp"
+                        android:paddingVertical="8dp"
+                        android:background="@drawable/recovery_preview_tile"
+                        android:layout_marginStart="8dp"
+                        android:id="@+id/recovery_otp_tile"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@id/recovery_identify_tile"
+                        app:layout_constraintEnd_toStartOf="@id/recovery_reset_tile"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/recovery_otp"
+                            android:importantForAccessibility="no" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/recovery_enter_otp"
+                            android:textSize="11sp"
+                            android:textColor="@color/finora_ink"
+                            android:includeFontPadding="false"
+                            android:gravity="center"
+                            android:fontFamily="sans-serif-medium"
+                            android:layout_marginTop="4dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/recovery_digits"
+                            android:textSize="11sp"
+                            android:textColor="@color/finora_secondary"
+                            android:includeFontPadding="false"
+                            android:gravity="center" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center_horizontal"
+                        android:paddingHorizontal="4dp"
+                        android:paddingVertical="8dp"
+                        android:background="@drawable/recovery_preview_tile"
+                        android:layout_marginStart="8dp"
+                        android:id="@+id/recovery_reset_tile"
+                        app:layout_constraintHorizontal_weight="1"
+                        app:layout_constraintStart_toEndOf="@id/recovery_otp_tile"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/recovery_key"
+                            android:importantForAccessibility="no" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/recovery_reset"
+                            android:textSize="11sp"
+                            android:textColor="@color/finora_ink"
+                            android:includeFontPadding="false"
+                            android:gravity="center"
+                            android:fontFamily="sans-serif-medium"
+                            android:layout_marginTop="4dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/recovery_new_password"
+                            android:textSize="11sp"
+                            android:textColor="@color/finora_secondary"
+                            android:includeFontPadding="false"
+                            android:gravity="center" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="16dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/recovery_need_help"
+                        android:textSize="12sp"
+                        android:textColor="@color/finora_secondary"
+                        android:includeFontPadding="false" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/recovery_help"
+                        android:textSize="12sp"
+                        android:textColor="@color/finora_emerald"
+                        android:includeFontPadding="false"
+                        android:fontFamily="sans-serif-medium"
+                        android:gravity="center_vertical"
+                        android:id="@+id/recovery_help_button"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_marginStart="6dp"
+                        android:minHeight="48dp"
+                        app:drawableEndCompat="@drawable/recovery_external"
+                        android:drawablePadding="2dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="2dp"
+                    android:background="@drawable/recovery_mint_pill"
+                    android:layout_marginTop="4dp">
+
+                    <View
+                        android:layout_width="6dp"
+                        android:layout_height="6dp"
+                        android:background="@drawable/recovery_account_tile" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/recovery_online"
+                        android:textSize="11sp"
+                        android:textColor="@color/finora_muted"
+                        android:includeFontPadding="false"
+                        android:layout_marginStart="4dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

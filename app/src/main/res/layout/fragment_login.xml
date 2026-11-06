@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:orientation="vertical"
-  android:background="@color/login_background"
+  android:background="@color/finora_background"
   android:theme="@style/ThemeOverlay.SmartExpenseManager.Login">
-  <LinearLayout
-    android:layout_width="match_parent"
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="0dp"
     android:layout_height="64dp"
     android:paddingHorizontal="16dp"
-    android:gravity="center_vertical">
+    android:id="@+id/login_header_2"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
     <FrameLayout
       android:id="@+id/login_back"
       android:layout_width="48dp"
@@ -20,7 +19,11 @@
       android:contentDescription="@string/onboarding_back"
       android:clickable="true"
       android:focusable="true"
-      android:background="?attr/selectableItemBackgroundBorderless">
+      android:background="?attr/selectableItemBackgroundBorderless"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toStartOf="@id/login_brand_bg"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent">
       <ImageView
         android:layout_width="16dp"
         android:layout_height="16dp"
@@ -32,7 +35,12 @@
       android:layout_width="28dp"
       android:layout_height="28dp"
       android:background="@drawable/login_brand_bg"
-      android:layout_marginStart="8dp">
+      android:layout_marginStart="8dp"
+      android:id="@+id/login_brand_bg"
+      app:layout_constraintStart_toEndOf="@id/login_back"
+      app:layout_constraintEnd_toStartOf="@id/login_brand"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent">
       <ImageView
         android:layout_width="14.25dp"
         android:layout_height="13.5dp"
@@ -41,32 +49,45 @@
         android:layout_gravity="center" />
     </FrameLayout>
     <TextView
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:text="@string/login_brand"
-      android:textColor="@color/login_text"
+      android:textColor="@color/finora_ink"
       android:textSize="16sp"
       android:fontFamily="sans-serif"
       android:includeFontPadding="false"
-      android:layout_marginStart="4dp" />
-    <Space
-      android:layout_width="0dp"
-      android:layout_height="1dp"
-      android:layout_weight="1" />
+      android:layout_marginStart="4dp"
+      android:maxLines="1"
+      android:ellipsize="end"
+      android:id="@+id/login_brand"
+      app:layout_constraintStart_toEndOf="@id/login_brand_bg"
+      app:layout_constraintEnd_toStartOf="@id/login_header"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent" />
     <TextView
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="@string/login_header"
-      android:textColor="@color/login_secondary"
+      android:textColor="@color/finora_secondary"
       android:textSize="14sp"
       android:fontFamily="sans-serif"
       android:includeFontPadding="false"
-      android:textStyle="bold" />
+      android:textStyle="bold"
+      android:id="@+id/login_header"
+      app:layout_constraintStart_toEndOf="@id/login_brand"
+      app:layout_constraintEnd_toStartOf="@id/login_onboarding_primary"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent" />
     <FrameLayout
       android:layout_width="32dp"
       android:layout_height="32dp"
       android:background="@drawable/onboarding_primary"
-      android:layout_marginStart="8dp">
+      android:layout_marginStart="8dp"
+      android:id="@+id/login_onboarding_primary"
+      app:layout_constraintStart_toEndOf="@id/login_header"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent">
       <ImageView
         android:layout_width="12dp"
         android:layout_height="12dp"
@@ -74,13 +95,17 @@
         android:importantForAccessibility="no"
         android:layout_gravity="center" />
     </FrameLayout>
-  </LinearLayout>
+  </androidx.constraintlayout.widget.ConstraintLayout>
   <androidx.core.widget.NestedScrollView
-    android:layout_width="match_parent"
+    android:layout_width="0dp"
     android:layout_height="0dp"
-    android:layout_weight="1"
     android:fillViewport="true"
-    android:importantForAutofill="yes">
+    android:importantForAutofill="yes"
+    android:id="@+id/login_scroll"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/login_header_2"
+    app:layout_constraintBottom_toBottomOf="parent">
     <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -138,7 +163,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="@string/login_security_badge"
-          android:textColor="@color/login_muted"
+          android:textColor="@color/finora_muted"
           android:textSize="11sp"
           android:fontFamily="sans-serif"
           android:includeFontPadding="false"
@@ -148,7 +173,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/login_title"
-        android:textColor="@color/login_text"
+        android:textColor="@color/finora_ink"
         android:textSize="24sp"
         android:fontFamily="sans-serif"
         android:includeFontPadding="false"
@@ -162,7 +187,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/login_description"
-        android:textColor="@color/login_secondary"
+        android:textColor="@color/finora_secondary"
         android:textSize="14sp"
         android:fontFamily="sans-serif"
         android:includeFontPadding="false"
@@ -180,30 +205,32 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="@string/login_identifier_label"
-          android:textColor="@color/login_secondary"
+          android:textColor="@color/finora_secondary"
           android:textSize="12sp"
           android:fontFamily="sans-serif"
           android:includeFontPadding="false"
           android:labelFor="@id/login_identifier"
           android:textStyle="bold" />
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
           android:layout_width="match_parent"
           android:layout_height="52dp"
           android:layout_marginTop="4dp"
-          android:orientation="horizontal"
-          android:gravity="center_vertical"
           android:paddingHorizontal="8dp"
           android:background="@drawable/login_input">
           <ImageView
             android:layout_width="22.333dp"
             android:layout_height="14.667dp"
             android:src="@drawable/login_email"
-            android:importantForAccessibility="no" />
+            android:importantForAccessibility="no"
+            android:id="@+id/login_email"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/login_identifier"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
           <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/login_identifier"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_height="0dp"
             android:background="@null"
             android:padding="0dp"
             android:hint="@string/login_identifier_hint"
@@ -211,39 +238,45 @@
             android:autofillHints="username"
             android:imeOptions="actionNext"
             android:singleLine="true"
-            android:textColor="@color/login_text"
-            android:textColorHint="@color/login_hint"
+            android:textColor="@color/finora_ink"
+            android:textColorHint="@color/finora_hint"
             android:textSize="16sp"
             android:fontFamily="sans-serif"
-            android:saveEnabled="false" />
-        </LinearLayout>
+            android:saveEnabled="false"
+            app:layout_constraintStart_toEndOf="@id/login_email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
         <TextView
           android:id="@+id/login_identifier_error"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginTop="4dp"
-          android:textColor="@color/login_error"
+          android:textColor="@color/finora_error"
           android:textSize="12sp"
           android:accessibilityLiveRegion="polite"
           android:visibility="gone" />
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:minHeight="24dp"
-          android:layout_marginTop="16dp"
-          android:orientation="horizontal"
-          android:gravity="center_vertical">
+          android:layout_marginTop="16dp">
           <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/login_password_label"
-            android:textColor="@color/login_secondary"
+            android:textColor="@color/finora_secondary"
             android:textSize="12sp"
             android:fontFamily="sans-serif"
             android:includeFontPadding="false"
             android:labelFor="@id/login_password"
             android:textStyle="bold"
-            android:layout_weight="1" />
+            android:id="@+id/login_password_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/login_forgot"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
           <TextView
             android:id="@+id/login_forgot"
             android:layout_width="wrap_content"
@@ -252,29 +285,35 @@
             android:text="@string/login_forgot_password"
             android:textSize="12sp"
             android:textStyle="bold"
-            android:textColor="@color/login_accent"
+            android:textColor="@color/finora_emerald"
             android:clickable="true"
             android:focusable="true"
-            android:background="?attr/selectableItemBackground" />
-        </LinearLayout>
-        <LinearLayout
+            android:background="?attr/selectableItemBackground"
+            app:layout_constraintStart_toEndOf="@id/login_password_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
           android:layout_width="match_parent"
           android:layout_height="52dp"
           android:layout_marginTop="4dp"
-          android:orientation="horizontal"
-          android:gravity="center_vertical"
           android:paddingHorizontal="8dp"
           android:background="@drawable/login_input">
           <ImageView
             android:layout_width="18.667dp"
             android:layout_height="19.25dp"
             android:src="@drawable/login_password"
-            android:importantForAccessibility="no" />
+            android:importantForAccessibility="no"
+            android:id="@+id/login_password_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/login_password"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
           <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/login_password"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_height="0dp"
             android:background="@null"
             android:padding="0dp"
             android:hint="@string/login_password_hint"
@@ -283,10 +322,14 @@
             android:imeOptions="actionDone"
             android:singleLine="true"
             android:saveEnabled="false"
-            android:textColor="@color/login_text"
-            android:textColorHint="@color/login_hint"
+            android:textColor="@color/finora_ink"
+            android:textColorHint="@color/finora_hint"
             android:textSize="16sp"
-            android:fontFamily="sans-serif" />
+            android:fontFamily="sans-serif"
+            app:layout_constraintStart_toEndOf="@id/login_password_2"
+            app:layout_constraintEnd_toStartOf="@id/login_password_toggle"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
           <FrameLayout
             android:id="@+id/login_password_toggle"
             android:layout_width="48dp"
@@ -294,7 +337,11 @@
             android:contentDescription="@string/login_show_password"
             android:clickable="true"
             android:focusable="true"
-            android:background="?attr/selectableItemBackgroundBorderless">
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:layout_constraintStart_toEndOf="@id/login_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
             <ImageView
               android:layout_width="20.167dp"
               android:layout_height="18.15dp"
@@ -302,47 +349,53 @@
               android:importantForAccessibility="no"
               android:layout_gravity="center" />
           </FrameLayout>
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
         <TextView
           android:id="@+id/login_password_error"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginTop="4dp"
           android:text="@string/login_password_required"
-          android:textColor="@color/login_error"
+          android:textColor="@color/finora_error"
           android:textSize="12sp"
           android:accessibilityLiveRegion="polite"
           android:visibility="gone" />
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
           android:layout_width="match_parent"
           android:layout_height="48dp"
-          android:layout_marginTop="8dp"
-          android:orientation="horizontal"
-          android:gravity="center_vertical">
+          android:layout_marginTop="8dp">
           <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/login_remember"
             android:layout_width="0dp"
             android:layout_height="48dp"
-            android:layout_weight="1"
             android:button="@null"
             app:buttonTint="@null"
             android:paddingStart="0dp"
             android:paddingEnd="0dp"
             android:drawablePadding="8dp"
             android:text="@string/login_remember"
-            android:textColor="@color/login_text"
+            android:textColor="@color/finora_ink"
             android:textSize="14sp"
             android:checked="true"
             android:saveEnabled="false"
             app:buttonCompat="@null"
             android:drawableStart="@drawable/login_checkbox"
-            android:gravity="center_vertical" />
+            android:gravity="center_vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/login_shield"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
           <ImageView
             android:layout_width="12dp"
             android:layout_height="15dp"
             android:src="@drawable/login_shield"
-            android:importantForAccessibility="no" />
-        </LinearLayout>
+            android:importantForAccessibility="no"
+            android:id="@+id/login_shield"
+            app:layout_constraintStart_toEndOf="@id/login_remember"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
         <com.google.android.material.button.MaterialButton
           android:id="@+id/login_submit"
           android:layout_width="match_parent"
@@ -350,11 +403,11 @@
           android:insetTop="0dp"
           android:insetBottom="0dp"
           android:text="@string/login_submit"
-          android:textColor="@color/login_card"
+          android:textColor="@color/white"
           android:textSize="16sp"
           android:textAllCaps="false"
           app:cornerRadius="12dp"
-          app:backgroundTint="@color/login_primary"
+          app:backgroundTint="@color/finora_teal"
           app:icon="@drawable/login_submit"
           app:iconTint="@null"
           app:iconSize="16.5dp"
@@ -366,7 +419,7 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="@string/login_service_unavailable"
-          android:textColor="@color/login_error"
+          android:textColor="@color/finora_error"
           android:textSize="12sp"
           android:layout_marginTop="8dp"
           android:accessibilityLiveRegion="polite"
@@ -390,7 +443,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/login_biometric"
-            android:textColor="@color/login_muted"
+            android:textColor="@color/finora_muted"
             android:textSize="14sp"
             android:fontFamily="sans-serif"
             android:includeFontPadding="false"
@@ -398,50 +451,66 @@
             android:textStyle="bold" />
         </LinearLayout>
       </LinearLayout>
-      <LinearLayout
+      <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_marginTop="16dp"
-        android:paddingHorizontal="16dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
+        android:paddingHorizontal="16dp">
         <View
           android:layout_width="0dp"
           android:layout_height="1dp"
-          android:layout_weight="1"
-          android:background="@color/login_divider" />
+          android:background="@color/finora_divider"
+          android:id="@+id/login_finora_divider"
+          app:layout_constraintHorizontal_weight="1"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintEnd_toStartOf="@id/login_divider"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent" />
         <TextView
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="@string/login_divider"
-          android:textColor="@color/login_hint"
+          android:textColor="@color/finora_hint"
           android:textSize="11sp"
           android:fontFamily="sans-serif"
           android:includeFontPadding="false"
-          android:layout_marginHorizontal="8dp"
-          android:letterSpacing="0.05" />
+          android:letterSpacing="0.05"
+          android:id="@+id/login_divider"
+          app:layout_constraintStart_toEndOf="@id/login_finora_divider"
+          app:layout_constraintEnd_toStartOf="@id/login_finora_divider_2"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent"
+          android:layout_marginStart="8dp"
+          android:layout_marginEnd="8dp" />
         <View
           android:layout_width="0dp"
           android:layout_height="1dp"
-          android:layout_weight="1"
-          android:background="@color/login_divider" />
-      </LinearLayout>
-      <LinearLayout
+          android:background="@color/finora_divider"
+          android:id="@+id/login_finora_divider_2"
+          app:layout_constraintHorizontal_weight="1"
+          app:layout_constraintStart_toEndOf="@id/login_divider"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent" />
+      </androidx.constraintlayout.widget.ConstraintLayout>
+      <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        android:baselineAligned="false">
+        android:layout_height="50dp">
         <LinearLayout
           android:id="@+id/login_google"
           android:layout_width="0dp"
-          android:layout_height="match_parent"
-          android:layout_weight="1"
+          android:layout_height="0dp"
           android:layout_marginEnd="4dp"
           android:orientation="horizontal"
           android:gravity="center"
           android:background="@drawable/login_input"
           android:clickable="true"
-          android:focusable="true">
+          android:focusable="true"
+          app:layout_constraintHorizontal_weight="1"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintEnd_toStartOf="@id/login_apple"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent">
           <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
@@ -451,7 +520,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/login_google"
-            android:textColor="@color/login_text"
+            android:textColor="@color/finora_ink"
             android:textSize="14sp"
             android:fontFamily="sans-serif"
             android:includeFontPadding="false"
@@ -461,14 +530,18 @@
         <LinearLayout
           android:id="@+id/login_apple"
           android:layout_width="0dp"
-          android:layout_height="match_parent"
-          android:layout_weight="1"
+          android:layout_height="0dp"
           android:layout_marginStart="4dp"
           android:orientation="horizontal"
           android:gravity="center"
           android:background="@drawable/login_input"
           android:clickable="true"
-          android:focusable="true">
+          android:focusable="true"
+          app:layout_constraintHorizontal_weight="1"
+          app:layout_constraintStart_toEndOf="@id/login_google"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent">
           <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
@@ -478,14 +551,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/login_apple"
-            android:textColor="@color/login_text"
+            android:textColor="@color/finora_ink"
             android:textSize="14sp"
             android:fontFamily="sans-serif"
             android:includeFontPadding="false"
             android:layout_marginStart="8dp"
             android:textStyle="bold" />
         </LinearLayout>
-      </LinearLayout>
+      </androidx.constraintlayout.widget.ConstraintLayout>
       <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
@@ -496,7 +569,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:text="@string/login_signup_prompt"
-          android:textColor="@color/login_secondary"
+          android:textColor="@color/finora_secondary"
           android:textSize="14sp"
           android:fontFamily="sans-serif"
           android:includeFontPadding="false" />
@@ -512,21 +585,23 @@
           android:text="@string/login_signup"
           android:textSize="14sp"
           android:textStyle="bold"
-          android:textColor="@color/login_accent" />
+          android:textColor="@color/finora_emerald" />
       </LinearLayout>
-      <LinearLayout
+      <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
         android:padding="8dp"
-        android:background="@drawable/login_input"
-        android:baselineAligned="false">
+        android:background="@drawable/login_input">
         <FrameLayout
           android:layout_width="32dp"
           android:layout_height="32dp"
-          android:background="@drawable/login_badge">
+          android:background="@drawable/login_badge"
+          android:id="@+id/login_badge"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintEnd_toStartOf="@id/login_linear_layout"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent">
           <ImageView
             android:layout_width="16.5dp"
             android:layout_height="15.75dp"
@@ -537,14 +612,18 @@
         <LinearLayout
           android:layout_width="0dp"
           android:layout_height="wrap_content"
-          android:layout_weight="1"
           android:layout_marginStart="8dp"
-          android:orientation="vertical">
+          android:orientation="vertical"
+          android:id="@+id/login_linear_layout"
+          app:layout_constraintStart_toEndOf="@id/login_badge"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent">
           <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/login_certificate_title"
-            android:textColor="@color/login_text"
+            android:textColor="@color/finora_ink"
             android:textSize="11sp"
             android:fontFamily="sans-serif"
             android:includeFontPadding="false"
@@ -553,14 +632,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/login_certificate_body"
-            android:textColor="@color/login_secondary"
+            android:textColor="@color/finora_secondary"
             android:textSize="12sp"
             android:fontFamily="sans-serif"
             android:includeFontPadding="false"
             android:layout_marginTop="2dp"
             android:lineSpacingExtra="2dp" />
         </LinearLayout>
-      </LinearLayout>
+      </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
   </androidx.core.widget.NestedScrollView>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

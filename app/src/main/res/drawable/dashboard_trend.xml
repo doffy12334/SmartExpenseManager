@@ -6,5 +6,5 @@
     android:viewportHeight="12">
     <path
         android:pathData="M9 12V6.75H12V12H9V12M4.5 12V0H7.5V12H4.5V12M0 12V3.75H3V12H0V12"
-        android:fillColor="#3E4946" />
+        android:fillColor="@color/finora_secondary" />
 </vector>

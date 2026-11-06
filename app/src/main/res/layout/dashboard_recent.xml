@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:text="@string/dashboard_recent"
             android:textSize="18sp"
-            android:textColor="@color/dashboard_ink"
+            android:textColor="@color/finora_ink"
             android:includeFontPadding="false"
             android:fontFamily="sans-serif-medium"
             android:layout_weight="1" />
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dashboard_see_all"
                 android:textSize="12sp"
-                android:textColor="@color/dashboard_accent"
+                android:textColor="@color/finora_emerald"
                 android:includeFontPadding="false"
                 android:fontFamily="sans-serif-medium" />
             <View
@@ -81,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dashboard_coffee"
                 android:textSize="16sp"
-                android:textColor="@color/dashboard_ink"
+                android:textColor="@color/finora_ink"
                 android:includeFontPadding="false"
                 android:fontFamily="sans-serif-medium"
                 android:maxLines="1"
@@ -91,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dashboard_coffee_details"
                 android:textSize="11sp"
-                android:textColor="@color/dashboard_secondary"
+                android:textColor="@color/finora_secondary"
                 android:includeFontPadding="false"
                 android:maxLines="1"
                 android:ellipsize="end" />
@@ -109,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dashboard_coffee_amount"
                 android:textSize="17sp"
-                android:textColor="@color/dashboard_expense"
+                android:textColor="@color/finora_expense"
                 android:includeFontPadding="false"
                 android:fontFamily="sans-serif-medium" />
             <TextView
@@ -117,7 +117,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dashboard_coffee_source"
                 android:textSize="10sp"
-                android:textColor="@color/dashboard_muted"
+                android:textColor="@color/finora_muted"
                 android:includeFontPadding="false" />
         </LinearLayout>
     </LinearLayout>
@@ -155,7 +155,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dashboard_transport"
                 android:textSize="16sp"
-                android:textColor="@color/dashboard_ink"
+                android:textColor="@color/finora_ink"
                 android:includeFontPadding="false"
                 android:fontFamily="sans-serif-medium"
                 android:maxLines="1"
@@ -165,7 +165,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dashboard_transport_details"
                 android:textSize="11sp"
-                android:textColor="@color/dashboard_secondary"
+                android:textColor="@color/finora_secondary"
                 android:includeFontPadding="false"
                 android:maxLines="1"
                 android:ellipsize="end" />
@@ -183,7 +183,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dashboard_transport_amount"
                 android:textSize="17sp"
-                android:textColor="@color/dashboard_expense"
+                android:textColor="@color/finora_expense"
                 android:includeFontPadding="false"
                 android:fontFamily="sans-serif-medium" />
             <TextView
@@ -191,7 +191,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dashboard_transport_source"
                 android:textSize="10sp"
-                android:textColor="@color/dashboard_muted"
+                android:textColor="@color/finora_muted"
                 android:includeFontPadding="false" />
         </LinearLayout>
     </LinearLayout>
@@ -229,7 +229,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dashboard_salary"
                 android:textSize="16sp"
-                android:textColor="@color/dashboard_ink"
+                android:textColor="@color/finora_ink"
                 android:includeFontPadding="false"
                 android:fontFamily="sans-serif-medium"
                 android:maxLines="1"
@@ -239,7 +239,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dashboard_salary_details"
                 android:textSize="11sp"
-                android:textColor="@color/dashboard_secondary"
+                android:textColor="@color/finora_secondary"
                 android:includeFontPadding="false"
                 android:maxLines="1"
                 android:ellipsize="end" />
@@ -257,7 +257,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dashboard_salary_amount"
                 android:textSize="17sp"
-                android:textColor="@color/dashboard_accent"
+                android:textColor="@color/finora_emerald"
                 android:includeFontPadding="false"
                 android:fontFamily="sans-serif-medium" />
             <TextView
@@ -265,7 +265,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dashboard_salary_source"
                 android:textSize="10sp"
-                android:textColor="@color/dashboard_accent"
+                android:textColor="@color/finora_emerald"
                 android:includeFontPadding="false" />
         </LinearLayout>
     </LinearLayout>
@@ -303,7 +303,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dashboard_groceries"
                 android:textSize="16sp"
-                android:textColor="@color/dashboard_ink"
+                android:textColor="@color/finora_ink"
                 android:includeFontPadding="false"
                 android:fontFamily="sans-serif-medium"
                 android:maxLines="1"
@@ -313,7 +313,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dashboard_groceries_details"
                 android:textSize="11sp"
-                android:textColor="@color/dashboard_secondary"
+                android:textColor="@color/finora_secondary"
                 android:includeFontPadding="false"
                 android:maxLines="1"
                 android:ellipsize="end" />
@@ -331,7 +331,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dashboard_groceries_amount"
                 android:textSize="17sp"
-                android:textColor="@color/dashboard_expense"
+                android:textColor="@color/finora_expense"
                 android:includeFontPadding="false"
                 android:fontFamily="sans-serif-medium" />
             <TextView
@@ -339,7 +339,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dashboard_groceries_source"
                 android:textSize="10sp"
-                android:textColor="@color/dashboard_muted"
+                android:textColor="@color/finora_muted"
                 android:includeFontPadding="false" />
         </LinearLayout>
     </LinearLayout>

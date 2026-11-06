@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dashboard_trend"
                 android:textSize="16sp"
-                android:textColor="@color/dashboard_ink"
+                android:textColor="@color/finora_ink"
                 android:includeFontPadding="false"
                 android:fontFamily="sans-serif-medium" />
             <TextView
@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dashboard_trend_average"
                 android:textSize="12sp"
-                android:textColor="@color/dashboard_accent"
+                android:textColor="@color/finora_emerald"
                 android:includeFontPadding="false"
                 android:fontFamily="sans-serif-medium" />
         </LinearLayout>
@@ -76,7 +76,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dashboard_mon"
                     android:textSize="11sp"
-                    android:textColor="@color/dashboard_secondary"
+                    android:textColor="@color/finora_secondary"
                     android:includeFontPadding="false" />
             </LinearLayout>
             <LinearLayout
@@ -97,7 +97,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dashboard_tue"
                     android:textSize="11sp"
-                    android:textColor="@color/dashboard_secondary"
+                    android:textColor="@color/finora_secondary"
                     android:includeFontPadding="false" />
             </LinearLayout>
             <LinearLayout
@@ -118,7 +118,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dashboard_wed"
                     android:textSize="11sp"
-                    android:textColor="@color/dashboard_secondary"
+                    android:textColor="@color/finora_secondary"
                     android:includeFontPadding="false" />
             </LinearLayout>
             <LinearLayout
@@ -139,7 +139,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dashboard_thu"
                     android:textSize="11sp"
-                    android:textColor="@color/dashboard_secondary"
+                    android:textColor="@color/finora_secondary"
                     android:includeFontPadding="false" />
             </LinearLayout>
             <LinearLayout
@@ -160,7 +160,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dashboard_fri"
                     android:textSize="11sp"
-                    android:textColor="@color/dashboard_secondary"
+                    android:textColor="@color/finora_secondary"
                     android:includeFontPadding="false" />
             </LinearLayout>
             <LinearLayout
@@ -181,7 +181,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dashboard_sat"
                     android:textSize="11sp"
-                    android:textColor="@color/dashboard_secondary"
+                    android:textColor="@color/finora_secondary"
                     android:includeFontPadding="false" />
             </LinearLayout>
             <LinearLayout
@@ -202,7 +202,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dashboard_sun"
                     android:textSize="11sp"
-                    android:textColor="@color/dashboard_accent"
+                    android:textColor="@color/finora_emerald"
                     android:includeFontPadding="false"
                     android:fontFamily="sans-serif-medium" />
             </LinearLayout>
@@ -217,10 +217,10 @@
             android:layout_height="wrap_content"
             android:text="@string/dashboard_average_marker"
             android:textSize="10sp"
-            android:textColor="@color/dashboard_muted"
+            android:textColor="@color/finora_muted"
             android:includeFontPadding="false"
             android:layout_gravity="end"
             android:layout_marginTop="47dp"
-            android:background="@color/dashboard_white" />
+            android:background="@color/white" />
     </FrameLayout>
 </LinearLayout>

@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dashboard_breakdown"
                 android:textSize="16sp"
-                android:textColor="@color/dashboard_ink"
+                android:textColor="@color/finora_ink"
                 android:includeFontPadding="false"
                 android:fontFamily="sans-serif-medium" />
             <TextView
@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dashboard_breakdown_month"
                 android:textSize="12sp"
-                android:textColor="@color/dashboard_secondary"
+                android:textColor="@color/finora_secondary"
                 android:includeFontPadding="false" />
         </LinearLayout>
         <LinearLayout
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/dashboard_categories"
                 android:textSize="11sp"
-                android:textColor="@color/dashboard_secondary"
+                android:textColor="@color/finora_secondary"
                 android:includeFontPadding="false" />
         </LinearLayout>
     </LinearLayout>
@@ -119,14 +119,14 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dashboard_donut_total"
                     android:textSize="11sp"
-                    android:textColor="@color/dashboard_secondary"
+                    android:textColor="@color/finora_secondary"
                     android:includeFontPadding="false" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/dashboard_donut_amount"
                     android:textSize="13sp"
-                    android:textColor="@color/dashboard_ink"
+                    android:textColor="@color/finora_ink"
                     android:includeFontPadding="false"
                     android:fontFamily="sans-serif-medium" />
                 <TextView
@@ -134,7 +134,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dashboard_currency"
                     android:textSize="10sp"
-                    android:textColor="@color/dashboard_accent"
+                    android:textColor="@color/finora_emerald"
                     android:includeFontPadding="false"
                     android:fontFamily="sans-serif-medium"
                     tools:ignore="SmallSp" />
@@ -166,7 +166,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dashboard_food"
                     android:textSize="12sp"
-                    android:textColor="@color/dashboard_ink"
+                    android:textColor="@color/finora_ink"
                     android:includeFontPadding="false"
                     android:layout_weight="1" />
                 <TextView
@@ -174,7 +174,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dashboard_food_percent"
                     android:textSize="12sp"
-                    android:textColor="@color/dashboard_ink"
+                    android:textColor="@color/finora_ink"
                     android:includeFontPadding="false"
                     android:fontFamily="sans-serif-medium" />
             </LinearLayout>
@@ -196,7 +196,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dashboard_shopping"
                     android:textSize="12sp"
-                    android:textColor="@color/dashboard_ink"
+                    android:textColor="@color/finora_ink"
                     android:includeFontPadding="false"
                     android:layout_weight="1" />
                 <TextView
@@ -204,7 +204,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dashboard_shopping_percent"
                     android:textSize="12sp"
-                    android:textColor="@color/dashboard_ink"
+                    android:textColor="@color/finora_ink"
                     android:includeFontPadding="false"
                     android:fontFamily="sans-serif-medium" />
             </LinearLayout>
@@ -226,7 +226,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dashboard_bills"
                     android:textSize="12sp"
-                    android:textColor="@color/dashboard_ink"
+                    android:textColor="@color/finora_ink"
                     android:includeFontPadding="false"
                     android:layout_weight="1" />
                 <TextView
@@ -234,7 +234,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dashboard_bills_percent"
                     android:textSize="12sp"
-                    android:textColor="@color/dashboard_ink"
+                    android:textColor="@color/finora_ink"
                     android:includeFontPadding="false"
                     android:fontFamily="sans-serif-medium" />
             </LinearLayout>
@@ -256,7 +256,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dashboard_travel"
                     android:textSize="12sp"
-                    android:textColor="@color/dashboard_ink"
+                    android:textColor="@color/finora_ink"
                     android:includeFontPadding="false"
                     android:layout_weight="1" />
                 <TextView
@@ -264,7 +264,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dashboard_travel_percent"
                     android:textSize="12sp"
-                    android:textColor="@color/dashboard_ink"
+                    android:textColor="@color/finora_ink"
                     android:includeFontPadding="false"
                     android:fontFamily="sans-serif-medium" />
             </LinearLayout>

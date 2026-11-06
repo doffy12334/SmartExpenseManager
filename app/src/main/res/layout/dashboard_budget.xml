@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:text="@string/dashboard_budget_title"
             android:textSize="16sp"
-            android:textColor="@color/dashboard_ink"
+            android:textColor="@color/finora_ink"
             android:includeFontPadding="false"
             android:fontFamily="sans-serif-medium"
             android:layout_weight="1" />
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:text="@string/dashboard_budget_limit"
             android:textSize="11sp"
-            android:textColor="@color/dashboard_secondary"
+            android:textColor="@color/finora_secondary"
             android:includeFontPadding="false" />
     </LinearLayout>
     <View
@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
             android:text="@string/dashboard_budget_remaining"
             android:textSize="11sp"
-            android:textColor="@color/dashboard_danger"
+            android:textColor="@color/finora_danger"
             android:includeFontPadding="false"
             android:layout_weight="1" />
         <TextView
@@ -86,7 +86,7 @@
             android:layout_height="wrap_content"
             android:text="@string/dashboard_budget_used"
             android:textSize="11sp"
-            android:textColor="@color/dashboard_ink"
+            android:textColor="@color/finora_ink"
             android:includeFontPadding="false"
             android:fontFamily="sans-serif-medium" />
     </LinearLayout>

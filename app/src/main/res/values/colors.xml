@@ -1,48 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- ============================================================= -->
+    <!-- 1. BASE COLOR PALETTE (Bảng màu gốc của thương hiệu Finora) -->
+    <!-- ============================================================= -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="login_background">#F5FAFF</color>
-    <color name="login_card">#FFFFFF</color>
-    <color name="login_input">#E9F5FF</color>
-    <color name="login_primary">#087F6D</color>
-    <color name="login_accent">#006455</color>
-    <color name="login_text">#071E29</color>
-    <color name="login_secondary">#3E4946</color>
-    <color name="login_muted">#536962</color>
-    <color name="login_hint">#6E7A76</color>
-    <color name="login_secondary_button">#D0E8DF</color>
-    <color name="login_mint">#82F7D8</color>
-    <color name="login_divider">#D5EBFA</color>
-    <color name="login_error">#B3261E</color>
-    <color name="onboarding_login_background">#D0E8DF</color>
-    <color name="onboarding_background">#F5FAFF</color>
-    <color name="onboarding_surface">#E9F5FF</color>
-    <color name="onboarding_primary">#006455</color>
-    <color name="onboarding_text">#071E29</color>
-    <color name="onboarding_secondary">#3E4946</color>
 
-    <!-- Dashboard -->
-    <color name="dashboard_background">#F5FAFF</color>
-    <color name="dashboard_ink">#071E29</color>
-    <color name="dashboard_white">#FFFFFF</color>
-    <color name="dashboard_secondary">#3E4946</color>
-    <color name="dashboard_muted">#536962</color>
-    <color name="dashboard_accent">#006455</color>
-    <color name="dashboard_primary">#087F6D</color>
-    <color name="dashboard_mint">#D0E8DF</color>
-    <color name="dashboard_blue">#D5EBFA</color>
-    <color name="dashboard_surface">#E9F5FF</color>
-    <color name="dashboard_danger">#BA1A1A</color>
-    <color name="dashboard_expense">#E66B68</color>
-    <color name="dashboard_food">#E66B68</color>
-    <color name="dashboard_shopping">#087F6D</color>
-    <color name="dashboard_bills">#F9A10A</color>
-    <color name="dashboard_travel">#377FF3</color>
+    <!-- Primary & Accent Emerald Greens -->
+    <color name="finora_emerald">#006455</color>
+    <color name="finora_teal">#087F6D</color>
+    <color name="finora_mint">#D0E8DF</color>
+    <color name="finora_mint_light">#82F7D8</color>
+
+    <!-- Backgrounds & Surfaces -->
+    <color name="finora_background">#F5FAFF</color>
+    <color name="finora_surface">#E9F5FF</color>
+    <color name="finora_surface_input">#D0E6F4</color>
+    <color name="finora_chip_bg">#DCF1FF</color>
+    <color name="finora_divider">#D5EBFA</color>
+
+    <!-- Text & Typography Colors -->
+    <color name="finora_ink">#071E29</color>
+    <color name="finora_secondary">#3E4946</color>
+    <color name="finora_muted">#536962</color>
+    <color name="finora_hint">#6E7A76</color>
+
+    <!-- Status & Functional Colors -->
+    <color name="finora_error">#B3261E</color>
+    <color name="finora_danger">#BA1A1A</color>
+    <color name="finora_expense">#E66B68</color>
+    <color name="finora_bills">#F9A10A</color>
+    <color name="finora_travel">#377FF3</color>
+
     <!-- Sign up -->
-    <color name="signup_field">#D0E6F4</color>
-    <color name="signup_chip">#DCF1FF</color>
     <color name="signup_welcome_end">#C8F4F2</color>
     <color name="signup_savings_start">#66D0E8DF</color>
     <color name="signup_savings_badge">#1A006455</color>
+
+    <!-- Recovery Password -->
+    <color name="recovery_ring_start">#A7CDC5</color>
+    <color name="recovery_ring_end">#B4E3D9</color>
+    <color name="recovery_outline">#99BDC9C4</color>
+    <color name="recovery_placeholder">#BDC9C4</color>
+    <color name="recovery_badge_ink">#002019</color>
+    <color name="recovery_back_ink">#4D635C</color>
+    <color name="recovery_otp_icon">#006552</color>
+
+    <!-- Shared icon, overlay and gradient colors -->
+    <color name="finora_emerald_transparent">#00006455</color>
+    <color name="receipt_photo_shade_transparent">#001E333E</color>
+    <color name="white_alpha_15">#26FFFFFF</color>
+    <color name="white_alpha_20">#33FFFFFF</color>
+    <color name="finora_teal_dark">#008069</color>
+    <color name="finora_ink_green">#0A1F1A</color>
+    <color name="google_green">#34A853</color>
+    <color name="finora_blue">#3B82F6</color>
+    <color name="google_blue">#4285F4</color>
+    <color name="finora_mint_medium">#78D7C2</color>
+    <color name="finora_mint_bright">#95F4DE</color>
+    <color name="finora_mint_pale">#D4FFF3</color>
+    <color name="finora_mint_frost">#D8FFF1</color>
+    <color name="google_red">#EA4335</color>
+    <color name="google_yellow">#FBBC05</color>
 </resources>

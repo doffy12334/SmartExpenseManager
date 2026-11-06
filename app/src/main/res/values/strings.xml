@@ -261,4 +261,41 @@
     <string name="signup_accept_terms">Bạn cần đồng ý với điều khoản để tiếp tục.</string>
     <string name="signup_country_vietnam">Việt Nam (+84)</string>
     <string name="signup_unavailable">Tính năng đăng ký đang được phát triển.</string>
+
+
+    <string name="recovery_header">Reset Password</string>
+    <string name="recovery_guard">FINORA GUARD</string>
+    <string name="recovery_intro">Đừng lo lắng, hãy nhập số điện thoại hoặc email liên kết với Finora để nhận mã xác thực (OTP).</string>
+    <string name="recovery_enter">Nhập tin</string>
+    <string name="recovery_otp">OTP</string>
+    <string name="recovery_password">Mật khẩu</string>
+    <string name="recovery_method">PHƯƠNG THỨC NHẬN MÃ</string>
+    <string name="recovery_phone">Số điện thoại</string>
+    <string name="recovery_email">Địa chỉ Email</string>
+    <string name="recovery_recommended">Khuyên dùng</string>
+    <string name="recovery_phone_detail">Nhận mã siêu tốc qua SMS hoặc Zalo OTP bảo mật</string>
+    <string name="recovery_email_detail">Gửi liên kết khôi phục an toàn đến hộp thư của bạn</string>
+    <string name="recovery_registered_phone">Số điện thoại đã đăng ký</string>
+    <string name="recovery_registered_email">Email đã đăng ký</string>
+    <string name="recovery_prefix">🇻🇳 +84</string>
+    <string name="recovery_phone_hint">0988 ••• •89</string>
+    <string name="recovery_email_hint">email@example.com</string>
+    <string name="recovery_security">Dữ liệu được mã hoá 256-bit chuẩn an ninh tài chính.</string>
+    <string name="recovery_send">Gửi mã xác thực OTP</string>
+    <string name="recovery_send_link">Gửi liên kết khôi phục</string>
+    <string name="recovery_flow">Quy trình khôi phục nhanh</string>
+    <string name="recovery_identify">1. Xác định</string>
+    <string name="recovery_account">Tài khoản</string>
+    <string name="recovery_enter_otp">2. Nhập OTP</string>
+    <string name="recovery_digits">6 chữ số</string>
+    <string name="recovery_reset">3. Cài lại</string>
+    <string name="recovery_new_password">Mật khẩu mới</string>
+    <string name="recovery_need_help">Cần hỗ trợ thêm?</string>
+    <string name="recovery_help">Trung tâm trợ giúp Finora</string>
+    <string name="recovery_online">Đội ngũ Finora trực tuyến 24/7</string>
+    <string name="recovery_back">Quay lại Đăng nhập</string>
+    <string name="recovery_help_unavailable">Trung tâm trợ giúp hiện chưa được kết nối.</string>
+    <string name="recovery_one">1</string>
+    <string name="recovery_two">2</string>
+    <string name="recovery_three">3</string>
 </resources>

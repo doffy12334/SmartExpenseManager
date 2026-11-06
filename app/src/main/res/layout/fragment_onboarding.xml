@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:orientation="vertical"
-  android:background="@color/onboarding_background">
-  <LinearLayout
-    android:layout_width="match_parent"
+  android:background="@color/finora_background">
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="0dp"
     android:layout_height="64dp"
     android:paddingHorizontal="16dp"
-    android:gravity="center_vertical">
+    android:id="@+id/onboarding_header"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
     <FrameLayout
       android:id="@+id/onboarding_back"
       android:layout_width="48dp"
@@ -19,7 +18,11 @@
       android:background="?attr/selectableItemBackgroundBorderless"
       android:contentDescription="@string/onboarding_back"
       android:clickable="true"
-      android:focusable="true">
+      android:focusable="true"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toStartOf="@id/onboarding_space"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent">
       <ImageView
         android:layout_width="16dp"
         android:layout_height="16dp"
@@ -30,7 +33,11 @@
     <Space
       android:layout_width="0dp"
       android:layout_height="1dp"
-      android:layout_weight="1" />
+      android:id="@+id/onboarding_space"
+      app:layout_constraintStart_toEndOf="@id/onboarding_back"
+      app:layout_constraintEnd_toStartOf="@id/onboarding_skip"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent" />
     <Button
       android:id="@+id/onboarding_skip"
       style="@style/Widget.Material3.Button.TextButton"
@@ -38,10 +45,14 @@
       android:layout_height="48dp"
       android:minWidth="48dp"
       android:text="@string/onboarding_skip"
-      android:textColor="#4D635C"
+      android:textColor="@color/recovery_back_ink"
       android:textSize="14sp"
       android:paddingHorizontal="8dp"
-        tools:ignore="VisualLintSystemUi" />
+      tools:ignore="VisualLintSystemUi"
+      app:layout_constraintStart_toEndOf="@id/onboarding_space"
+      app:layout_constraintEnd_toStartOf="@id/onboarding_account"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent" />
     <FrameLayout
       android:id="@+id/onboarding_account"
       android:layout_width="48dp"
@@ -49,7 +60,11 @@
       android:contentDescription="@string/onboarding_account"
       android:background="?attr/selectableItemBackgroundBorderless"
       android:clickable="true"
-      android:focusable="true">
+      android:focusable="true"
+      app:layout_constraintStart_toEndOf="@id/onboarding_skip"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent">
       <FrameLayout
         android:layout_width="32dp"
         android:layout_height="32dp"
@@ -63,18 +78,26 @@
           android:layout_gravity="center" />
       </FrameLayout>
     </FrameLayout>
-  </LinearLayout>
+  </androidx.constraintlayout.widget.ConstraintLayout>
   <androidx.viewpager2.widget.ViewPager2
     android:id="@+id/onboarding_view_pager"
-    android:layout_width="match_parent"
+    android:layout_width="0dp"
     android:layout_height="0dp"
-    android:layout_weight="1" />
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/onboarding_header"
+    app:layout_constraintBottom_toTopOf="@id/onboarding_footer" />
   <LinearLayout
-    android:layout_width="match_parent"
+    android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingHorizontal="16dp"
-    android:paddingBottom="24dp">
+    android:paddingBottom="24dp"
+    android:id="@+id/onboarding_footer"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/onboarding_view_pager"
+    app:layout_constraintBottom_toBottomOf="parent">
     <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="40dp"
@@ -106,16 +129,16 @@
       android:text="@string/onboarding_next"
       android:textSize="14sp"
       android:textStyle="bold"
-      android:textColor="#FFFFFF"
+      android:textColor="@color/white"
       android:insetTop="0dp"
       android:insetBottom="0dp"
       app:cornerRadius="12dp"
-      app:backgroundTint="@color/onboarding_primary"
+      app:backgroundTint="@color/finora_emerald"
       app:icon="@drawable/onboarding_next"
       app:iconSize="14dp"
       app:iconPadding="8dp"
       app:iconGravity="textEnd"
-      app:iconTint="#FFFFFF"
+      app:iconTint="@color/white"
         tools:ignore="VisualLintButtonSize" />
     <com.google.android.material.button.MaterialButton
       android:id="@+id/onboarding_login"
@@ -123,13 +146,13 @@
       android:layout_height="52dp"
       android:layout_marginTop="10dp"
       android:text="@string/onboarding_login"
-      android:textColor="#0A1F1A"
+      android:textColor="@color/finora_ink_green"
       android:textSize="14sp"
       android:textStyle="bold"
       android:insetTop="0dp"
       android:insetBottom="0dp"
       app:cornerRadius="12dp"
-      app:backgroundTint="#D0E8DF"
+      app:backgroundTint="@color/finora_mint"
       app:elevation="0dp"
         tools:ignore="VisualLintButtonSize" />
     <TextView
@@ -138,13 +161,13 @@
       android:layout_height="wrap_content"
       android:text="@string/onboarding_legal"
       android:textSize="12sp"
-      android:textColor="@color/onboarding_secondary"
+      android:textColor="@color/finora_secondary"
       android:fontFamily="sans-serif"
       android:includeFontPadding="false"
       android:layout_marginTop="16dp"
       android:paddingHorizontal="12dp"
       android:gravity="center"
       android:lineSpacingExtra="4dp"
-      android:textColorLink="@color/onboarding_primary" />
+      android:textColorLink="@color/finora_emerald" />
   </LinearLayout>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

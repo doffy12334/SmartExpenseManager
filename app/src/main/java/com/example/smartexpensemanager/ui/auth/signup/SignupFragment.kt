@@ -62,13 +62,13 @@ class SignupFragment : Fragment(R.layout.fragment_signup) {
                 else -> R.string.signup_strength_strong
             }
         )
-        val active = ContextCompat.getColor(requireContext(), R.color.login_accent)
-        val inactive = ContextCompat.getColor(requireContext(), R.color.signup_field)
+        val active = ContextCompat.getColor(requireContext(), R.color.finora_emerald)
+        val inactive = ContextCompat.getColor(requireContext(), R.color.finora_surface_input)
         listOf(binding.signupBarOne, binding.signupBarTwo, binding.signupBarThree)
             .forEachIndexed { index, bar ->
                 bar.backgroundTintList = ColorStateList.valueOf(if (index < score) active else inactive)
             }
-        val muted = ContextCompat.getColor(requireContext(), R.color.login_hint)
+        val muted = ContextCompat.getColor(requireContext(), R.color.finora_hint)
         listOf(binding.signupRuleLength, binding.signupRuleUpper, binding.signupRuleNumber)
             .zip(listOf(binding.signupRuleLengthIcon, binding.signupRuleUpperIcon, binding.signupRuleNumberIcon))
             .forEachIndexed { index, (label, icon) ->

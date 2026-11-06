@@ -45,232 +45,311 @@
           android:layout_height="match_parent"
           android:orientation="vertical"
           android:padding="16dp">
-          <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="18dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:baselineAligned="false">
-            <ImageView
-              android:layout_width="14.25dp"
-              android:layout_height="13.5dp"
-              android:src="@drawable/cashflow_onboarding_wallet"
-              android:importantForAccessibility="no" />
-            <TextView
-              android:layout_width="0dp"
-              android:layout_height="wrap_content"
-              android:text="@string/cashflow_onboarding_assets"
-              android:textSize="11sp"
-              android:textColor="#95F4DE"
-              android:fontFamily="sans-serif"
-              android:includeFontPadding="false"
-              android:layout_marginStart="6dp"
-              android:layout_weight="1"
-              android:maxLines="1"
-              android:ellipsize="end" />
-            <TextView
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="@string/cashflow_onboarding_growth"
-              android:textSize="11sp"
-              android:textColor="#D4FFF3"
-              android:fontFamily="sans-serif"
-              android:includeFontPadding="false"
-              android:background="@drawable/cashflow_onboarding_growth_bg"
-              android:paddingHorizontal="8dp"
-              android:paddingVertical="2dp" />
-          </LinearLayout>
-          <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="38dp"
-            android:layout_marginTop="4dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:baselineAligned="false">
-            <TextView
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="@string/cashflow_onboarding_balance"
-              android:textSize="30sp"
-              android:textColor="#FFFFFF"
-              android:fontFamily="sans-serif"
-              android:includeFontPadding="false"
-              android:textStyle="bold"
-              android:letterSpacing="-0.025" />
-            <TextView
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="@string/cashflow_onboarding_currency"
-              android:textSize="16sp"
-              android:textColor="#FFFFFF"
-              android:fontFamily="sans-serif"
-              android:includeFontPadding="false"
-              android:layout_marginStart="6dp" />
-          </LinearLayout>
-          <LinearLayout
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="18dp"
+                tools:ignore="TextSizeCheck">
+
+                <ImageView
+                    android:id="@+id/cashflow_onboarding_wallet"
+                    android:layout_width="14.25dp"
+                    android:layout_height="13.5dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/cashflow_onboarding_wallet"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/cashflow_onboarding_assets"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/cashflow_onboarding_assets"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif"
+                    android:includeFontPadding="false"
+                    android:maxLines="1"
+                    android:text="@string/cashflow_onboarding_assets"
+                    android:textColor="@color/finora_mint_bright"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/cashflow_onboarding_growth"
+                    app:layout_constraintStart_toEndOf="@id/cashflow_onboarding_wallet"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/cashflow_onboarding_growth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cashflow_onboarding_growth_bg"
+                    android:fontFamily="sans-serif"
+                    android:includeFontPadding="false"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="2dp"
+                    android:text="@string/cashflow_onboarding_growth"
+                    android:textColor="@color/finora_mint_pale"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cashflow_onboarding_assets"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:layout_marginTop="4dp"
+                android:baselineAligned="false"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                tools:ignore="TextSizeCheck">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:includeFontPadding="false"
+                    android:letterSpacing="-0.025"
+                    android:text="@string/cashflow_onboarding_balance"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:fontFamily="sans-serif"
+                    android:includeFontPadding="false"
+                    android:text="@string/cashflow_onboarding_currency"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+          <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:baselineAligned="false">
+            android:layout_marginTop="8dp">
             <ImageView
               android:layout_width="11.667dp"
               android:layout_height="7dp"
               android:src="@drawable/cashflow_onboarding_income"
-              android:importantForAccessibility="no" />
-            <TextView
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="@string/cashflow_onboarding_income"
-              android:textSize="11sp"
-              android:textColor="#78D7C2"
-              android:fontFamily="sans-serif"
-              android:includeFontPadding="false"
-              android:layout_marginStart="4dp" />
+              android:importantForAccessibility="no"
+              android:id="@+id/cashflow_onboarding_income"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintEnd_toStartOf="@id/cashflow_onboarding_income_2"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintBottom_toBottomOf="parent" />
+
+              <TextView
+                  android:id="@+id/cashflow_onboarding_income_2"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginStart="4dp"
+                  android:fontFamily="sans-serif"
+                  android:includeFontPadding="false"
+                  android:text="@string/cashflow_onboarding_income"
+                  android:textColor="@color/finora_mint_medium"
+                  android:textSize="11sp"
+                  app:layout_constraintBottom_toBottomOf="parent"
+                  app:layout_constraintEnd_toStartOf="@id/cashflow_onboarding_space_4"
+                  app:layout_constraintStart_toEndOf="@id/cashflow_onboarding_income"
+                  app:layout_constraintTop_toTopOf="parent"
+                  tools:ignore="TextContrastCheck" />
             <Space
               android:layout_width="0dp"
               android:layout_height="1dp"
-              android:layout_weight="1" />
+              android:id="@+id/cashflow_onboarding_space_4"
+              app:layout_constraintStart_toEndOf="@id/cashflow_onboarding_income_2"
+              app:layout_constraintEnd_toStartOf="@id/cashflow_onboarding_expense"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintBottom_toBottomOf="parent" />
             <ImageView
               android:layout_width="11.667dp"
               android:layout_height="7dp"
               android:src="@drawable/cashflow_onboarding_expense"
-              android:importantForAccessibility="no" />
-            <TextView
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="@string/cashflow_onboarding_expense"
-              android:textSize="11sp"
-              android:textColor="#78D7C2"
-              android:fontFamily="sans-serif"
-              android:includeFontPadding="false"
-              android:layout_marginStart="4dp" />
-          </LinearLayout>
+              android:importantForAccessibility="no"
+              android:id="@+id/cashflow_onboarding_expense"
+              app:layout_constraintStart_toEndOf="@id/cashflow_onboarding_space_4"
+              app:layout_constraintEnd_toStartOf="@id/cashflow_onboarding_expense_2"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintBottom_toBottomOf="parent" />
+
+              <TextView
+                  android:id="@+id/cashflow_onboarding_expense_2"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginStart="4dp"
+                  android:fontFamily="sans-serif"
+                  android:includeFontPadding="false"
+                  android:text="@string/cashflow_onboarding_expense"
+                  android:textColor="@color/finora_mint_medium"
+                  android:textSize="11sp"
+                  app:layout_constraintBottom_toBottomOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toEndOf="@id/cashflow_onboarding_expense"
+                  app:layout_constraintTop_toTopOf="parent"
+                  tools:ignore="TextContrastCheck" />
+          </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
       </FrameLayout>
 
-      <LinearLayout
+      <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal"
-        android:baselineAligned="false">
-        <LinearLayout
-          android:layout_width="0dp"
-          android:layout_height="38dp"
-          android:layout_weight="1"
-          android:padding="4dp"
-          android:orientation="horizontal"
-          android:gravity="center_vertical"
-          android:background="@drawable/receipt_onboarding_metric"
-          android:layout_marginEnd="2dp"
-          android:baselineAligned="false">
-          <FrameLayout
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:background="@drawable/cashflow_onboarding_dining_bg">
-            <ImageView
-              android:layout_width="10dp"
-              android:layout_height="13.333dp"
-              android:src="@drawable/cashflow_onboarding_dining"
-              android:importantForAccessibility="no"
-              android:layout_gravity="center" />
-          </FrameLayout>
-          <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginStart="8dp"
-            android:orientation="vertical">
-            <TextView
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:text="@string/cashflow_onboarding_dining"
-              android:textSize="11sp"
-              android:textColor="@color/onboarding_text"
-              android:fontFamily="sans-serif"
-              android:includeFontPadding="false"
-              android:maxLines="1"
-              android:ellipsize="end" />
-            <TextView
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:text="@string/cashflow_onboarding_dining_limit"
-              android:textSize="12sp"
-              android:textColor="#4D635C"
-              android:fontFamily="sans-serif"
-              android:includeFontPadding="false"
-              android:layout_marginTop="2dp"
-              android:maxLines="1"
-              android:ellipsize="end" />
-          </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
-          android:layout_width="0dp"
-          android:layout_height="38dp"
-          android:layout_weight="1"
-          android:padding="4dp"
-          android:orientation="horizontal"
-          android:gravity="center_vertical"
-          android:background="@drawable/receipt_onboarding_metric"
-          android:layout_marginStart="2dp"
-          android:baselineAligned="false">
-          <FrameLayout
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:background="@drawable/cashflow_onboarding_transport_bg">
-            <ImageView
-              android:layout_width="12dp"
-              android:layout_height="10.667dp"
-              android:src="@drawable/cashflow_onboarding_transport"
-              android:importantForAccessibility="no"
-              android:layout_gravity="center" />
-          </FrameLayout>
-          <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginStart="8dp"
-            android:orientation="vertical">
-            <TextView
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:text="@string/cashflow_onboarding_transport"
-              android:textSize="11sp"
-              android:textColor="@color/onboarding_text"
-              android:fontFamily="sans-serif"
-              android:includeFontPadding="false"
-              android:maxLines="1"
-              android:ellipsize="end" />
-            <TextView
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:text="@string/cashflow_onboarding_transport_amount"
-              android:textSize="12sp"
-              android:textColor="#4D635C"
-              android:fontFamily="sans-serif"
-              android:includeFontPadding="false"
-              android:layout_marginTop="2dp"
-              android:maxLines="1"
-              android:ellipsize="end" />
-          </LinearLayout>
-        </LinearLayout>
-      </LinearLayout>
+        android:layout_marginTop="8dp">
 
-      <LinearLayout
+          <androidx.constraintlayout.widget.ConstraintLayout
+              android:id="@+id/cashflow_onboarding_receipt_onboarding_metric"
+              android:layout_width="0dp"
+              android:layout_height="38dp"
+              android:layout_marginEnd="2dp"
+              android:background="@drawable/receipt_onboarding_metric"
+              android:padding="4dp"
+              app:layout_constraintEnd_toStartOf="@id/cashflow_onboarding_receipt_onboarding_metric_2"
+              app:layout_constraintHorizontal_weight="1"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              tools:ignore="TextSizeCheck">
+
+              <FrameLayout
+                  android:id="@+id/cashflow_onboarding_dining_bg"
+                  android:layout_width="28dp"
+                  android:layout_height="28dp"
+                  android:background="@drawable/cashflow_onboarding_dining_bg"
+                  app:layout_constraintBottom_toBottomOf="parent"
+                  app:layout_constraintEnd_toStartOf="@id/cashflow_onboarding_linear_layout_3"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toTopOf="parent">
+
+                  <ImageView
+                      android:layout_width="10dp"
+                      android:layout_height="13.333dp"
+                      android:layout_gravity="center"
+                      android:importantForAccessibility="no"
+                      android:src="@drawable/cashflow_onboarding_dining" />
+              </FrameLayout>
+
+              <LinearLayout
+                  android:id="@+id/cashflow_onboarding_linear_layout_3"
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_marginStart="8dp"
+                  android:orientation="vertical"
+                  app:layout_constraintBottom_toBottomOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toEndOf="@id/cashflow_onboarding_dining_bg"
+                  app:layout_constraintTop_toTopOf="parent">
+
+                  <TextView
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:ellipsize="end"
+                      android:fontFamily="sans-serif"
+                      android:includeFontPadding="false"
+                      android:maxLines="1"
+                      android:text="@string/cashflow_onboarding_dining"
+                      android:textColor="@color/finora_ink"
+                      android:textSize="11sp" />
+
+                  <TextView
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="2dp"
+                      android:ellipsize="end"
+                      android:fontFamily="sans-serif"
+                      android:includeFontPadding="false"
+                      android:maxLines="1"
+                      android:text="@string/cashflow_onboarding_dining_limit"
+                      android:textColor="@color/recovery_back_ink"
+                      android:textSize="12sp" />
+              </LinearLayout>
+          </androidx.constraintlayout.widget.ConstraintLayout>
+
+          <androidx.constraintlayout.widget.ConstraintLayout
+              android:id="@+id/cashflow_onboarding_receipt_onboarding_metric_2"
+              android:layout_width="0dp"
+              android:layout_height="38dp"
+              android:layout_marginStart="2dp"
+              android:background="@drawable/receipt_onboarding_metric"
+              android:padding="4dp"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintHorizontal_weight="1"
+              app:layout_constraintStart_toEndOf="@id/cashflow_onboarding_receipt_onboarding_metric"
+              app:layout_constraintTop_toTopOf="parent"
+              tools:ignore="TextSizeCheck">
+
+              <FrameLayout
+                  android:id="@+id/cashflow_onboarding_transport_bg"
+                  android:layout_width="28dp"
+                  android:layout_height="28dp"
+                  android:background="@drawable/cashflow_onboarding_transport_bg"
+                  app:layout_constraintBottom_toBottomOf="parent"
+                  app:layout_constraintEnd_toStartOf="@id/cashflow_onboarding_linear_layout_2"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toTopOf="parent">
+
+                  <ImageView
+                      android:layout_width="12dp"
+                      android:layout_height="10.667dp"
+                      android:layout_gravity="center"
+                      android:importantForAccessibility="no"
+                      android:src="@drawable/cashflow_onboarding_transport" />
+              </FrameLayout>
+
+              <LinearLayout
+                  android:id="@+id/cashflow_onboarding_linear_layout_2"
+                  android:layout_width="0dp"
+                  android:layout_height="wrap_content"
+                  android:layout_marginStart="8dp"
+                  android:orientation="vertical"
+                  app:layout_constraintBottom_toBottomOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toEndOf="@id/cashflow_onboarding_transport_bg"
+                  app:layout_constraintTop_toTopOf="parent">
+
+                  <TextView
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:ellipsize="end"
+                      android:fontFamily="sans-serif"
+                      android:includeFontPadding="false"
+                      android:maxLines="1"
+                      android:text="@string/cashflow_onboarding_transport"
+                      android:textColor="@color/finora_ink"
+                      android:textSize="11sp" />
+
+                  <TextView
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="2dp"
+                      android:ellipsize="end"
+                      android:fontFamily="sans-serif"
+                      android:includeFontPadding="false"
+                      android:maxLines="1"
+                      android:text="@string/cashflow_onboarding_transport_amount"
+                      android:textColor="@color/recovery_back_ink"
+                      android:textSize="12sp" />
+              </LinearLayout>
+          </androidx.constraintlayout.widget.ConstraintLayout>
+      </androidx.constraintlayout.widget.ConstraintLayout>
+
+      <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
         android:padding="8dp"
-        android:background="@drawable/receipt_onboarding_metric"
-        android:baselineAligned="false">
+        android:background="@drawable/receipt_onboarding_metric">
         <FrameLayout
           android:layout_width="32dp"
           android:layout_height="32dp"
-          android:background="@drawable/cashflow_onboarding_savings_bg">
+          android:background="@drawable/cashflow_onboarding_savings_bg"
+          android:id="@+id/cashflow_onboarding_savings_bg"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintEnd_toStartOf="@id/cashflow_onboarding_linear_layout"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent">
           <ImageView
             android:layout_width="15dp"
             android:layout_height="14.25dp"
@@ -281,15 +360,19 @@
         <LinearLayout
           android:layout_width="0dp"
           android:layout_height="wrap_content"
-          android:layout_weight="1"
           android:layout_marginStart="8dp"
-          android:orientation="vertical">
+          android:orientation="vertical"
+          android:id="@+id/cashflow_onboarding_linear_layout"
+          app:layout_constraintStart_toEndOf="@id/cashflow_onboarding_savings_bg"
+          app:layout_constraintEnd_toStartOf="@id/cashflow_onboarding_constraint_layout"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent">
           <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/cashflow_onboarding_savings"
             android:textSize="12sp"
-            android:textColor="@color/onboarding_text"
+            android:textColor="@color/finora_ink"
             android:fontFamily="sans-serif"
             android:includeFontPadding="false"
             android:textStyle="bold" />
@@ -298,49 +381,79 @@
             android:layout_height="wrap_content"
             android:text="@string/cashflow_onboarding_savings_goal"
             android:textSize="12sp"
-            android:textColor="#4D635C"
+            android:textColor="@color/recovery_back_ink"
             android:fontFamily="sans-serif"
             android:includeFontPadding="false"
             android:layout_marginTop="2dp" />
         </LinearLayout>
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
           android:layout_width="64dp"
           android:layout_height="28dp"
-          android:orientation="horizontal"
-          android:gravity="bottom"
           android:paddingHorizontal="4dp"
           android:importantForAccessibility="no"
-          android:baselineAligned="false">
+          android:id="@+id/cashflow_onboarding_constraint_layout"
+          app:layout_constraintStart_toEndOf="@id/cashflow_onboarding_linear_layout"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintBottom_toBottomOf="parent">
           <View
             android:layout_width="6dp"
             android:layout_height="12dp"
-            android:background="@drawable/cashflow_onboarding_inactive" />
+            android:background="@drawable/cashflow_onboarding_inactive"
+            android:id="@+id/cashflow_onboarding_inactive"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cashflow_onboarding_space"
+            app:layout_constraintBottom_toBottomOf="parent" />
           <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1" />
+            android:id="@+id/cashflow_onboarding_space"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/cashflow_onboarding_inactive"
+            app:layout_constraintEnd_toStartOf="@id/cashflow_onboarding_bar_two"
+            app:layout_constraintBottom_toBottomOf="parent" />
           <View
             android:layout_width="6dp"
             android:layout_height="16dp"
-            android:background="@drawable/cashflow_onboarding_bar_two" />
+            android:background="@drawable/cashflow_onboarding_bar_two"
+            android:id="@+id/cashflow_onboarding_bar_two"
+            app:layout_constraintStart_toEndOf="@id/cashflow_onboarding_space"
+            app:layout_constraintEnd_toStartOf="@id/cashflow_onboarding_space_2"
+            app:layout_constraintBottom_toBottomOf="parent" />
           <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1" />
+            android:id="@+id/cashflow_onboarding_space_2"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/cashflow_onboarding_bar_two"
+            app:layout_constraintEnd_toStartOf="@id/cashflow_onboarding_bar_three"
+            app:layout_constraintBottom_toBottomOf="parent" />
           <View
             android:layout_width="6dp"
             android:layout_height="24dp"
-            android:background="@drawable/cashflow_onboarding_bar_three" />
+            android:background="@drawable/cashflow_onboarding_bar_three"
+            android:id="@+id/cashflow_onboarding_bar_three"
+            app:layout_constraintStart_toEndOf="@id/cashflow_onboarding_space_2"
+            app:layout_constraintEnd_toStartOf="@id/cashflow_onboarding_space_3"
+            app:layout_constraintBottom_toBottomOf="parent" />
           <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
-            android:layout_weight="1" />
+            android:id="@+id/cashflow_onboarding_space_3"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/cashflow_onboarding_bar_three"
+            app:layout_constraintEnd_toStartOf="@id/cashflow_onboarding_onboarding_primary"
+            app:layout_constraintBottom_toBottomOf="parent" />
           <View
             android:layout_width="6dp"
             android:layout_height="28dp"
-            android:background="@drawable/onboarding_primary" />
-        </LinearLayout>
-      </LinearLayout>
+            android:background="@drawable/onboarding_primary"
+            android:id="@+id/cashflow_onboarding_onboarding_primary"
+            app:layout_constraintStart_toEndOf="@id/cashflow_onboarding_space_3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+      </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
     <TextView
@@ -349,7 +462,7 @@
       android:layout_height="wrap_content"
       android:text="@string/cashflow_onboarding_title"
       android:textSize="24sp"
-      android:textColor="@color/onboarding_text"
+      android:textColor="@color/finora_ink"
       android:fontFamily="sans-serif"
       android:includeFontPadding="false"
       android:layout_marginTop="24dp"
@@ -368,7 +481,7 @@
       android:layout_height="wrap_content"
       android:text="@string/cashflow_onboarding_description"
       android:textSize="16sp"
-      android:textColor="@color/onboarding_secondary"
+      android:textColor="@color/finora_secondary"
       android:fontFamily="sans-serif"
       android:includeFontPadding="false"
       android:layout_marginTop="4dp"
@@ -412,7 +525,7 @@
         android:layout_height="wrap_content"
         android:text="@string/cashflow_onboarding_recognition"
         android:textSize="14sp"
-        android:textColor="@color/onboarding_text"
+        android:textColor="@color/finora_ink"
         android:fontFamily="sans-serif"
         android:includeFontPadding="false"
         android:layout_marginStart="8dp"
@@ -458,7 +571,7 @@
         android:layout_height="wrap_content"
         android:text="@string/cashflow_onboarding_budget_alert"
         android:textSize="14sp"
-        android:textColor="@color/onboarding_text"
+        android:textColor="@color/finora_ink"
         android:fontFamily="sans-serif"
         android:includeFontPadding="false"
         android:layout_marginStart="8dp"

@@ -1,11 +1,13 @@
 package com.example.smartexpensemanager.ui.auth.register
 
 import android.os.Bundle
+import android.content.res.ColorStateList
 import android.text.method.PasswordTransformationMethod
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
+import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -26,7 +28,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentRegisterBinding.bind(view)
-        setupListener()
+        setupListeners()
         observeState()
     }
 
@@ -36,27 +38,28 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         super.onDestroyView()
     }
 
-    private fun setupListener() = with(binding) {
+    private fun setupListeners() = with(binding) {
         signupBack.setOnClickListener { findNavController().navigateUp() }
+
         signupName.doAfterTextChanged {
-            it?.toString()
-                .orEmpty()
+            viewModel.onNameChanged(
+                it?.toString().orEmpty())
         }
         signupIdentifier.doAfterTextChanged {
-            it?.toString()
-                .orEmpty()
+            viewModel.onIdentifierChanged(
+                it?.toString().orEmpty())
         }
         signupPhone.doAfterTextChanged {
-            it?.toString()
-                .orEmpty()
+            viewModel.onPhoneChanged(
+                it?.toString().orEmpty())
         }
         signupPassword.doAfterTextChanged {
-            it?.toString()
-                .orEmpty()
+            viewModel.onPasswordChanged(
+                it?.toString().orEmpty())
         }
         signupConfirmPassword.doAfterTextChanged {
-            it?.toString()
-                .orEmpty()
+            viewModel.onConfirmPasswordChanged(
+                it?.toString().orEmpty())
         }
         signupTermsCheck.setOnCheckedChangeListener { _, checked ->
             viewModel.onAgreeTermsChanged(checked)
@@ -64,10 +67,23 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
         signupPasswordToggle.setOnClickListener {
             val show = signupPassword.transformationMethod is PasswordTransformationMethod
-            signupPassword.transformationMethod = if (show) null
-            else PasswordTransformationMethod.getInstance()
-            signupPassword.setSelection(signupConfirmPassword.text?.length ?: 0)
+            signupPassword.transformationMethod =
+                if (show) null
+                else PasswordTransformationMethod.getInstance()
+            signupPassword.setSelection(signupPassword.text?.length ?: 0)
         }
+
+        signupConfirmToggle.setOnClickListener {
+            val show = signupConfirmPassword.transformationMethod is PasswordTransformationMethod
+            signupConfirmPassword.transformationMethod =
+                if (show) null
+                else PasswordTransformationMethod.getInstance()
+
+            signupConfirmPassword.setSelection(
+                signupConfirmPassword.text?.length ?: 0
+            )
+        }
+
 
         signupSubmit.setOnClickListener {
             viewModel.register()
@@ -86,87 +102,136 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
         }
 
     }
+
+
     private fun observeState() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.uiState.collect { state ->
                     renderUi(state)
+
+                    val status = state.submitStatus
+                    if (status is SubmitStatus.Success) {
+                        Toast.makeText(
+                            requireContext(),
+                            status.message,
+                            Toast.LENGTH_LONG
+                        ).show()
+
+                        viewModel.onSuccessHandled()
+                        findNavController().navigate(R.id.action_signup_to_dashboard)
+                    }
                 }
             }
         }
     }
 
-    private fun renderUi(state: RegisterUiState)  = with(binding) {
-        val form = state.formState
+    private fun renderUi(state: RegisterUiState) {
+        renderForm(state.formState)
+        renderErrors(state.formState)
+        renderSubmitStatus(state.submitStatus)
+    }
 
-        signupName.setTextIfDifferent(form.name)
-        signupIdentifier.setTextIfDifferent(form.identifier)
-        signupPhone.setTextIfDifferent(form.phone)
-        signupPassword.setTextIfDifferent(form.password)
-        signupConfirmPassword.setTextIfDifferent(form.confirmPassword)
 
-        if (signupTermsCheck.isChecked != form.agreeTerms) {
-            signupTermsCheck.isChecked = form.agreeTerms
+    //Dong bo data len cac edt
+    private fun renderForm(formState: RegisterFormState) = with(binding) {
+        signupName.setTextIfDifferent(formState.name)
+        signupIdentifier.setTextIfDifferent(formState.identifier)
+        signupPhone.setTextIfDifferent(formState.phone)
+        signupPassword.setTextIfDifferent(formState.password)
+        signupConfirmPassword.setTextIfDifferent(formState.confirmPassword)
+        renderPasswordStrength(formState.passwordStrength)
+        if (signupTermsCheck.isChecked != formState.agreeTerms) {
+            signupTermsCheck.isChecked = formState.agreeTerms
         }
-        //Loi o nhap email
+    }
+
+    private fun renderPasswordStrength(level: Int) = with(binding) {
+        val label = when (level) {
+            0 -> R.string.signup_strength_empty
+            1 -> R.string.signup_strength_weak
+            2 -> R.string.signup_strength_medium
+            else -> R.string.signup_strength_strong
+        }
+        val color = ContextCompat.getColor(requireContext(), when (level) {
+            1 -> R.color.finora_error
+            2 -> R.color.finora_bills
+            3 -> R.color.finora_emerald
+            else -> R.color.finora_hint
+        })
+        val inactiveColor = ContextCompat.getColor(requireContext(), R.color.finora_divider)
+        signupStrengthText.setText(label)
+        signupStrengthText.setTextColor(color)
+        listOf(strengthBar1, strengthBar2, strengthBar3).forEachIndexed { index, bar ->
+            bar.backgroundTintList = ColorStateList.valueOf(
+                if (index < level) color else inactiveColor
+            )
+        }
+    }
+
+    //Hien thi error
+    private fun renderErrors(form: RegisterFormState) = with(binding) {
         signupIdentifierError.isVisible = form.identifierError != null
-        form.identifierError?.let {
+
+        form.identifierError?.let { error ->
             signupIdentifierError.setText(
-                if (it == IdentifierError.REQUIRED) R.string.signup_required
-                else R.string.signup_invalid_email
+                when (error) {
+                    IdentifierError.REQUIRED -> R.string.signup_required
+                    IdentifierError.INVALID -> R.string.signup_invalid_email
+                }
             )
         }
 
         signupPasswordError.isVisible = form.passwordError != null
-        form.passwordError?.let {
-            signupPasswordError.setText(
-                when(it){
-                    PasswordError.REQUIRED ->  R.string.signup_required
-                    PasswordError.TOO_SHORT -> R.string.signup_too_short
-                    PasswordError.MISSING_DIGIT-> R.string.signup_missing_digit
-                    PasswordError.MISSING_UPPERCASE-> R.string.signup_missing_uppercase
-                    PasswordError.MISSING_LOWERCASE-> R.string.signup_missing_lowercase
-                    PasswordError.MISSING_SPECIAL_CHAR-> R.string.signup_missing_special_character
 
+        form.passwordError?.let { error ->
+            signupPasswordError.setText(
+                when (error) {
+                    PasswordError.REQUIRED -> R.string.signup_required
+
+                    PasswordError.TOO_SHORT -> R.string.signup_too_short
+
+                    PasswordError.MISSING_DIGIT -> R.string.signup_missing_digit
+
+                    PasswordError.MISSING_UPPERCASE -> R.string.signup_missing_uppercase
+
+                    PasswordError.MISSING_LOWERCASE -> R.string.signup_missing_lowercase
+
+                    PasswordError.MISSING_SPECIAL_CHAR -> R.string.signup_missing_special_character
                 }
             )
         }
 
         signupConfirmError.isVisible = form.confirmPasswordError != null
-        form.confirmPasswordError?.let {
+
+        form.confirmPasswordError?.let { error ->
             signupConfirmError.setText(
-                when (it) {
-                    ConfirmPasswordError.REQUIRED -> R.string.signup_required
-                    ConfirmPasswordError.MISMATCH -> R.string.signup_password_mismatch
+                when (error) {
+                    ConfirmPasswordError.REQUIRED ->
+                        R.string.signup_required
+
+                    ConfirmPasswordError.MISMATCH ->
+                        R.string.signup_password_mismatch
                 }
             )
         }
-        signupTermsError.isVisible = true
-        when(val status = state.submitStatus){
-            is SubmitStatus.Idle -> {
-                signupSubmit.isEnabled = true
-                signupErrorBanner.isVisible = false
-            }
-            is SubmitStatus.Loading -> {
-                signupSubmit.isEnabled = false
-                signupErrorBanner.isVisible = false
-            }
-            is SubmitStatus.Success ->{
-                signupSubmit.isEnabled = true
-                signupErrorBanner.isVisible = false
-                Toast.makeText(context, status.message, Toast.LENGTH_SHORT).show()
-            }
-            is SubmitStatus.Error -> {
-                signupSubmit.isEnabled = true
-                signupErrorBanner.isVisible = true
-                signupErrorBanner.text = status.message
-            }
+
+        signupTermsError.isVisible = form.termsRequiredError
+    }
+
+    //Hien thi trang thai gui
+    private fun renderSubmitStatus(status: SubmitStatus) = with(binding) {
+        signupSubmit.isEnabled = status !is SubmitStatus.Loading
+        signupErrorBanner.isVisible = status is SubmitStatus.Error
+
+        if (status is SubmitStatus.Error) {
+            signupErrorBanner.text = status.message
         }
-
     }
+
     private fun TextView.setTextIfDifferent(newText: String) {
-        if (text?.toString() != newText) setText(newText)
+        if (text?.toString() != newText) {
+            text = newText
+        }
     }
-
-
 }

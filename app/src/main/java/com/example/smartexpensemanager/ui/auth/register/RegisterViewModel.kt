@@ -9,7 +9,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
-
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 class RegisterViewModel(
     private val savedState: SavedStateHandle
 ) : ViewModel() {
@@ -39,7 +40,8 @@ class RegisterViewModel(
                     identifier = value,
                     identifierError = null
                 ),
-                submitStatus = SubmitStatus.Idle
+                submitStatus =
+                    state.submitStatus as? SubmitStatus.Loading ?: SubmitStatus.Idle
             )
         }
     }
@@ -59,7 +61,8 @@ class RegisterViewModel(
                     password = value,
                     passwordError = null
                 ),
-                submitStatus = SubmitStatus.Idle
+                submitStatus =
+                    state.submitStatus as? SubmitStatus.Loading ?: SubmitStatus.Idle
             )
 
         }
@@ -72,7 +75,8 @@ class RegisterViewModel(
                     confirmPassword = value,
                     confirmPasswordError = null
                 ),
-                submitStatus = SubmitStatus.Idle
+                submitStatus =
+                    state.submitStatus as? SubmitStatus.Loading ?: SubmitStatus.Idle
             )
         }
     }
@@ -89,15 +93,59 @@ class RegisterViewModel(
     }
 
     fun register() {
+        if ((_uiState.value.submitStatus is SubmitStatus.Loading)) return
         val form = _uiState.value.formState
         val validation = validateForm(form)
+        _uiState.update {
+            it.copy(
+                formState = it.formState.copy(
+                    identifierError = validation.identifierError,
+                    passwordError = validation.passwordError,
+                    confirmPasswordError = validation.confirmPasswordError,
+                    termsRequiredError = validation.termsRequiredError
+                )
+            )
+        }
+        if(!validation.isComplete) return
 
+        _uiState.update {
+            it.copy(
+                submitStatus = SubmitStatus.Loading
+            )
+        }
+        viewModelScope.launch {
+            val result = authRepository.registerWithEmail(
+                email = form.identifier.trim(),
+                password = form.password
+            )
+            _uiState.update {
+                it.copy(
+                    submitStatus = result.fold(
+                        onSuccess = {
+                            SubmitStatus.Success("Yeu cau dang ky da duoc xu ly")
+                        },
+                        onFailure = {
+                            SubmitStatus.Error(it.message ?: "Dang ky that bai")
+                        }
+                    )
+                )
+            }
+        }
 
     }
-
+    fun onSuccessHandled() {
+        _uiState.update { state ->
+            if (state.submitStatus is SubmitStatus.Success) {
+                state.copy(submitStatus = SubmitStatus.Idle)
+            } else {
+                state
+            }
+        }
+    }
     private fun validatePassword(value: String): PasswordError? {
         val passwordError = when {
             value.isEmpty() -> PasswordError.REQUIRED
+            value.length < 8 -> PasswordError.TOO_SHORT
             !value.any { it.isDigit() } -> PasswordError.MISSING_DIGIT
             !value.any { it.isUpperCase() } -> PasswordError.MISSING_UPPERCASE
             !value.any { it.isLowerCase() } -> PasswordError.MISSING_LOWERCASE
@@ -106,7 +154,6 @@ class RegisterViewModel(
                         && !it.isWhitespace()
             } -> PasswordError.MISSING_SPECIAL_CHAR
 
-            value.length < 8 -> PasswordError.TOO_SHORT
             else -> null
         }
         return passwordError
@@ -140,20 +187,19 @@ class RegisterViewModel(
             termsRequiredError = !form.agreeTerms
         )
     }
-
     private fun validateIdentifier(value: String): IdentifierError? {
-        val id = value.trim()
-        if (id.isEmpty()) return IdentifierError.REQUIRED
-        val isEmail = EMAIL_REGEX.matches(id)
-        val isPhone = PHONE_REGEX.matches(
-            id.replace(PHONE_SEPARATORS, ""))
-        return if (isEmail || isPhone) null else IdentifierError.INVALID
-    }
+        val email = value.trim()
 
+        return when {
+            email.isEmpty() -> IdentifierError.REQUIRED
+            !EMAIL_REGEX.matches(email) -> IdentifierError.INVALID
+            else -> null
+        }
+    }
     companion object {
         private const val KEY_IDENTIFIER = "register_identifier"
         private val EMAIL_REGEX = Regex("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$")
         private val PHONE_REGEX = Regex("^\\+?[0-9]{8,15}$")
-        private val PHONE_SEPARATORS = Regex("[\\`s().-]")
+        private val PHONE_SEPARATORS = Regex("[`s().-]")
     }
 }

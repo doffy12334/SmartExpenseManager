@@ -23,6 +23,24 @@ data class RegisterFormState(
     val confirmPasswordError: ConfirmPasswordError? = null,
     val termsRequiredError: Boolean = false
 ) {
+    // A requirements indicator, not an estimate of password entropy.
+    val passwordStrength: Int
+        get() {
+            if (password.isEmpty()) return 0
+            val metRequirements = listOf(
+                password.length >= 8,
+                password.any { it.isDigit() },
+                password.any { it.isUpperCase() },
+                password.any { it.isLowerCase() },
+                password.any { !it.isLetterOrDigit() && !it.isWhitespace() }
+            ).count { it }
+            return when {
+                metRequirements == 5 -> 3
+                password.length >= 8 && metRequirements >= 3 -> 2
+                else -> 1
+            }
+        }
+
     val isComplete: Boolean
         get() = name.isNotBlank() &&
                 identifier.isNotBlank() &&

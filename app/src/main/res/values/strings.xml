@@ -261,6 +261,12 @@
     <string name="signup_accept_terms">Bạn cần đồng ý với điều khoản để tiếp tục.</string>
     <string name="signup_country_vietnam">Việt Nam (+84)</string>
     <string name="signup_unavailable">Tính năng đăng ký đang được phát triển.</string>
+    <!-- Password Errors -->
+    <string name="signup_too_short">Mật khẩu phải có tối thiểu 8 ký tự</string>
+    <string name="signup_missing_digit">Mật khẩu phải chứa ít nhất 1 chữ số </string>
+    <string name="signup_missing_uppercase">Mật khẩu phải chứa ít nhất 1 chữ cái viết hoa </string>
+    <string name="signup_missing_lowercase">Mật khẩu phải chứa ít nhất 1 chữ cái viết thường </string>
+    <string name="signup_missing_special_character">Mật khẩu phải chứa ít nhất 1 ký tự đặc biệt </string>
 
 
     <string name="recovery_header">Reset Password</string>

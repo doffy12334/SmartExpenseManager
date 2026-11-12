@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="@drawable/dashboard_card"
+    android:elevation="1dp"
+    android:padding="12dp"
+    android:layout_marginBottom="8dp">
+    <FrameLayout
+        android:id="@+id/item_icon_container"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:background="@drawable/dashboard_pink_tile">
+        <ImageView
+            android:id="@+id/item_icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/dashboard_coffee"
+            android:scaleType="fitCenter"
+            android:importantForAccessibility="no"
+            android:layout_gravity="center"/>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_marginStart="12dp">
+        <TextView
+            android:id="@+id/item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ca phe"
+            android:textSize="16sp"
+            android:textColor="@color/finora_ink"
+            android:includeFontPadding="false"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:ellipsize="end"/>
+        <TextView
+            android:id="@+id/item_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hom nay"
+            android:textSize="11sp"
+            android:textColor="@color/finora_secondary"
+            android:includeFontPadding="false"
+            android:maxLines="1"
+            android:ellipsize="end"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="end"
+        android:layout_marginStart="8dp">
+        <TextView
+            android:id="@+id/item_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="40.000D"
+            android:textSize="17sp"
+            android:textColor="@color/finora_expense"
+            android:includeFontPadding="false"
+            android:fontFamily="sans-serif-medium"/>
+        <TextView
+            android:id="@+id/item_source"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chi tieu"
+            android:textSize="11sp"
+            android:textColor="@color/finora_muted"
+            android:includeFontPadding="false"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,6 +1,7 @@
 [versions]
 # Core Android & Plugin Versions
 agp = "9.3.3"
+kotlin = "2.1.0"
 coreKtx = "1.19.1"
 appcompat = "1.8.0"
 material = "1.14.0"
@@ -90,6 +91,8 @@ retrofit-core = { module = "com.squareup.retrofit2:retrofit", version.ref = "ret
 retrofit-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
 okhttp-core = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
 okhttp-logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp" }
+supabase-postgrest = { module = "io.github.jan-tennert.supabase:postgrest-kt" }
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = "1.8.0" }
 
 # -------------------------------------------------------------
 # 6. HARDWARE, SECURITY & ML (Sinh trắc học, CameraX, ML Kit, WorkManager)
@@ -119,3 +122,4 @@ androidx-work-testing = { module = "androidx.work:work-testing", version.ref = "
 android-application = { id = "com.android.application", version.ref = "agp" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

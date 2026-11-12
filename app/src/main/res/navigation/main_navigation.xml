@@ -2,39 +2,61 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/onboardingFragment">
+    app:startDestination="@id/authGateFragment">
 
-    <fragment android:id="@+id/onboardingFragment"
+    <fragment
+        android:id="@+id/onboardingFragment"
         android:name="com.example.smartexpensemanager.ui.onboarding.fragment.OnboardingFragment">
-        <action android:id="@+id/action_onboarding_to_login"
+        <action
+            android:id="@+id/action_onboarding_to_login"
             app:destination="@id/loginFragment"
-            app:launchSingleTop="true"/>
+            app:launchSingleTop="true" />
     </fragment>
 
-    <fragment android:id="@+id/loginFragment"
+    <fragment
+        android:id="@+id/loginFragment"
         android:name="com.example.smartexpensemanager.ui.auth.login.LoginFragment">
-        <action android:id="@+id/action_login_to_dashboard"
+        <action
+            android:id="@+id/action_login_to_dashboard"
             app:destination="@id/dashboardFragment"
-            app:launchSingleTop="true"/>
-        <action android:id="@+id/action_login_to_signup"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_login_to_signup"
             app:destination="@id/signupFragment"
-            app:launchSingleTop="true"/>
-        <action android:id="@+id/action_login_to_recovery"
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_login_to_recovery"
             app:destination="@id/recoveryFragment"
-            app:launchSingleTop="true"/>
+            app:launchSingleTop="true" />
     </fragment>
 
-    <fragment android:id="@+id/recoveryFragment"
-        android:name="com.example.smartexpensemanager.ui.auth.recovery.RecoveryFragment"/>
+    <fragment
+        android:id="@+id/recoveryFragment"
+        android:name="com.example.smartexpensemanager.ui.auth.recovery.RecoveryFragment" />
 
-    <fragment android:id="@+id/signupFragment"
+    <fragment
+        android:id="@+id/signupFragment"
         android:name="com.example.smartexpensemanager.ui.auth.register.RegisterFragment">
-        <action android:id="@+id/action_signup_to_dashboard"
+        <action
+            android:id="@+id/action_signup_to_dashboard"
             app:destination="@id/dashboardFragment"
             app:launchSingleTop="true"
             app:popUpTo="@id/main_navigation"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
     </fragment>
-    <fragment android:id="@+id/dashboardFragment"
-        android:name="com.example.smartexpensemanager.ui.dashboard.DashboardFragment"/>
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.example.smartexpensemanager.ui.dashboard.DashboardFragment" />
+
+    <fragment
+        android:id="@+id/authGateFragment"
+        android:name="com.example.smartexpensemanager.ui.auth.AuthGateFragment">
+        <action
+            android:id="@+id/action_auth_gate_to_dashboard"
+            app:destination="@+id/dashboardFragment" />
+        <action
+            android:id="@+id/action_auth_gate_to_login"
+            app:destination="@+id/loginFragment" />
+    </fragment>
+
 </navigation>

@@ -208,6 +208,9 @@
     <string name="dashboard_balance_hidden">•••••••• ₫</string>
     <string name="dashboard_balance_show">Hiện số dư</string>
     <string name="dashboard_unavailable">Tính năng đang được phát triển.</string>
+    <string name="transaction_income">Thu nhập</string>
+    <string name="transaction_expense">Chi tiêu</string>
+    <string name="auth_refresh_failed">Chưa thể khôi phục phiên. Hãy kiểm tra kết nối mạng.</string>
     <!-- Sign up -->
     <string name="signup_back_desc">Quay lại</string>
     <string name="signup_brand">Finora</string>

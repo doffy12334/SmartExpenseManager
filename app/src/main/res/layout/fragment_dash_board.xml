@@ -98,6 +98,7 @@
                     </LinearLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
                 <include
+                    android:id="@+id/dashboard_balance"
                     layout="@layout/dashboard_balance" />
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -165,7 +166,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="@string/dashboard_new"
-                                    android:textSize="9sp"
+                                    android:textSize="11sp"
                                     android:textColor="@color/white"
                                     android:includeFontPadding="false"
                                     android:fontFamily="sans-serif-medium" />
@@ -201,10 +202,13 @@
                     </FrameLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
                 <include
+                    android:id="@+id/dashboard_budget"
                     layout="@layout/dashboard_budget" />
                 <include
+                    android:id="@+id/dashboard_breakdown"
                     layout="@layout/dashboard_breakdown" />
                 <include
+                    android:id="@+id/dashboard_trend"
                     layout="@layout/dashboard_trend" />
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -259,10 +263,12 @@
                     </LinearLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
                 <include
+                    android:id="@+id/dashboard_recent"
                     layout="@layout/dashboard_recent" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
     <include
+        android:id="@+id/dashboard_navigation"
         layout="@layout/dashboard_navigation" />
 </FrameLayout>

@@ -5,6 +5,7 @@ import io.github.jan.supabase.SupabaseClient
 import io.github.jan.supabase.auth.Auth
 import io.github.jan.supabase.createSupabaseClient
 import io.ktor.client.engine.okhttp.OkHttp
+import io.github.jan.supabase.postgrest.Postgrest
 
 object SupabaseProvider {
     val supaClient : SupabaseClient by lazy {
@@ -13,7 +14,12 @@ object SupabaseProvider {
             supabaseKey = BuildConfig.SUPABASE_PUBLISHABLE_KEY
         ){
             httpEngine = OkHttp.create()
-            install(Auth)
+            install(Auth){
+                autoSaveToStorage = true
+                alwaysAutoRefresh = true
+                autoLoadFromStorage = true
+            }
+            install(Postgrest)
         }
     }
 }

@@ -94,7 +94,7 @@
     <string name="login_password_label">Mật khẩu</string>
     <string name="login_password_hint">••••••••••••</string>
     <string name="login_forgot_password">Quên mật khẩu?</string>
-    <string name="login_remember">Lưu phiên đăng nhập an toàn</string>
+    <string name="login_remember">Lưu phiên đăng nhập </string>
     <string name="login_submit">Đăng nhập</string>
     <string name="login_biometric">Đăng nhập bằng vân tay / Face ID</string>
     <string name="login_divider">HOẶC TIẾP TỤC VỚI</string>
